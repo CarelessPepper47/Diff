@@ -10,9 +10,9 @@
   <body>
     <div class="bg-blue-500/50">
       <div>
-        <h1 class="font-bold text-4xl">Basics - Primitves</h1>
+        <h1 class="font-bold text-4xl hover:text-white">Basics - Primitves</h1>
         <div>
-          <p class="p-5 m-5 font-semibold">
+          <p class="p-5 m-5 font-semibold text-2xl">
             1. Operacje na numerach to: % (modula) = operator reszty; **
             (exponentiator) = operator potęgi
           </p>
@@ -41,7 +41,7 @@
         </div>
       </div>
       <div>
-        <h1 class="p-5 m-5 font-semibold">2. Updating Variables</h1>
+        <h1 class="p-5 m-5 text-2xl font-semibold">2. Updating Variables</h1>
         <div>
           <section
             class="border-2 m-5 flex flex-col bg-black/80 text-white p-5"
@@ -52,6 +52,39 @@
             <p>score -= 2 <span class="kom">// 8</span></p>
             <p>score <span class="kom">// 8</span></p>
           </section>
+        </div>
+        <div>
+          <p class="px-5 mx-5 font-semibold">There is shorter version:</p>
+          <section
+            class="border-2 m-5 flex flex-col bg-black/80 text-white p-5"
+          >
+            <p>
+              score--
+              <span class="kom"
+                >// 7 -- it's decrementing by 1 using this way</span
+              >
+            </p>
+            <p>score <span class="kom">// 7</span></p>
+            <p>score++ <span class="kom">// 8</span></p>
+            <p>score <span class="kom">// 8</span></p>
+          </section>
+          <p class="px-5 mx-5 font-semibold">Difference between i++ and ++i:</p>
+          <div class="m-5 border-2 border-black p-5 bg-black/50">
+            <p>
+              i++ : first returns the original value AND THEN it increases it by
+              1
+            </p>
+            <p>++i : returns already already increased value</p>
+            <section
+              class="border-2 m-5 flex flex-col bg-black/80 text-white p-5"
+            >
+              <p>let i = 0;</p>
+              <p>i++ <span class="kom">// 0; i = 1</span></p>
+              <p>i <span class="kom">// 1</span></p>
+              <p>++i <span class="kom">// 2; i = 2</span></p>
+              <p>i <span class="kom">// 2</span></p>
+            </section>
+          </div>
         </div>
       </div>
     </div>
