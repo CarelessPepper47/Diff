@@ -552,10 +552,6 @@ video {
   margin: 1.25rem;
 }
 
-.m-16 {
-  margin: 4rem;
-}
-
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -566,8 +562,22 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
 .flex {
   display: flex;
+}
+
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.w-1\/2 {
+  width: 50%;
 }
 
 .flex-col {
