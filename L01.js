@@ -20,3 +20,18 @@ if (quantity == !Number) {
 } else {
     alert(`You need to pay ${quantity * price}!`)
 }
+
+let numerekRandomek = Math.floor(Math.random() * 10) + 1;
+
+if (numerekRandomek == !Number) {
+    alert("That's not a number")
+} else {
+    alert(`You need to pay ${numerekRandomek * price}!`)
+}
+
+let specyficznyNumerek = Math.floor(Math.random() * 4) + 50; // Losuje numerek of 50 do 54
+
+let die1 = Math.floor(Math.random() * 6) +1;
+let die2 = Math.floor(Math.random() * 6) +1;
+
+let roll = `You rolled a ${die1} and a ${die2}. They sum to ${die1+die2}`
