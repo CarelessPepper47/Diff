@@ -27,6 +27,22 @@
           <h2 class="font-semibold text-2xl m-5">
             1. Equality(==) vs Strict Equality(===)
           </h2>
+          <div class="border-2 ml-5 p-5 w-2/3 bg-slate-500 h-fit">
+            <p class="">1 == 1<span class="kom"> // true</span></p>
+            <p class="">
+              1 == "1"<span class="kom">
+                // true > it doesnt matter if the type is different, if after
+                transforming the argument, they are equal after all</span
+              >
+            </p>
+            <p class="mt-3">1 === 1<span class="kom"> // true</span></p>
+            <p class="">
+              1 === "1"<span class="kom">
+                // false > even tho both are 1, one is number (typeOf) and the
+                second is string</span
+              >
+            </p>
+          </div>
         </div>
       </section>
     </main>
