@@ -8,26 +8,32 @@
     <script src="L02.js"></script>
   </head>
   <body>
-    <main>
+    <main class="bg-slate-600">
       <section class="flex flex-col w-full">
         <h1 class="font-bold text-4xl m-5">Comparisons</h1>
-        <div class="border-2 ml-5 p-5 w-2/3 bg-slate-400 h-fit">
-          <p class="">- ><span class="kom"> greater than</span></p>
-          <p class="">- &#60;<span class="kom"> less than</span></p>
-          <p class="">- >=<span class="kom"> greater than or equal to</span></p>
+        <div class="border-2 ml-5 p-5 w-2/3 bg-slate-300 h-fit">
+          <p class="">- &#160;&#160;><span class="kom"> greater than</span></p>
+          <p class="">- &#160;&#160;&#60;<span class="kom"> less than</span></p>
           <p class="">
-            - &#60;=<span class="kom"> less than or equal to</span>
+            - &#160;&#160;>=<span class="kom"> greater than or equal to</span>
           </p>
-          <p class="">- ==<span class="kom"> equal</span></p>
-          <p class="">- !=<span class="kom"> not equal</span></p>
-          <p class="">- ===<span class="kom"> strict equality</span></p>
-          <p class="">- !==<span class="kom"> // strict non-equality</span></p>
+          <p class="">
+            - &#160;&#160;&#60;=<span class="kom"> less than or equal to</span>
+          </p>
+          <p class="">- &#160;&#160;==<span class="kom"> equal</span></p>
+          <p class="">- &#160;&#160;!=<span class="kom"> not equal</span></p>
+          <p class="">
+            - &#160;&#160;===<span class="kom"> strict equality</span>
+          </p>
+          <p class="">
+            - &#160;&#160;!==<span class="kom"> // strict non-equality</span>
+          </p>
         </div>
         <div>
           <h2 class="font-semibold text-2xl m-5">
             1. Equality(==) vs Strict Equality(===)
           </h2>
-          <div class="border-2 ml-5 p-5 w-2/3 bg-slate-500 h-fit">
+          <div class="border-2 ml-5 p-5 w-2/3 bg-slate-300 h-fit">
             <p class="">1 == 1<span class="kom"> // true</span></p>
             <p class="">
               1 == "1"<span class="kom">
@@ -44,7 +50,62 @@
             </p>
           </div>
         </div>
+        <div>
+          <h2 class="font-semibold text-2xl m-5">2. Console Object</h2>
+          <div class="border-2 ml-5 p-5 w-2/3 bg-slate-300 h-fit">
+            <p class="">
+              console.log("mleko")<span class="kom"> // mleko</span>
+            </p>
+            <p class="">
+              console.log(mleko)<span class="kom"> // undentified</span>
+            </p>
+            <p class="mt-3">let mleko = "mleko"<span class="kom"></span></p>
+            <p class="">console.log(mleko)<span class="kom"> // mleko</span></p>
+            <p class="mt-3">
+              console.warn(mleko)<span class="kom">
+                // will make a warning in console saying "mleko"</span
+              >
+            </p>
+            <p class="mt-3">
+              console.error(mleko)<span class="kom">
+                // will make a error in console saying "mleko"</span
+              >
+            </p>
+          </div>
+        </div>
       </section>
+      <div class="flex">
+        <section class="bg-slate-300 m-5 w-1/2">
+          <div>
+            <h1 class="font-semibold text-3xl p-2">Exercise:</h1>
+            <p class="mt-5 p-5">
+              1. Let's get some practice with conditional statements! In order
+              to make your code repeatable and testable, I'm asking you to write
+              your code inside a pre-defined function (something we have not yet
+              covered in the course).
+            </p>
+            <p class="px-5">
+              Write your code between the two comments in index.js You will
+              automatically have access to a variable called num. Please do not
+              try and define num or change num in any way! I will be setting the
+              value of num when I test your code, so that I can test different
+              outcomes If num is an even number, print out "even". Don't do
+              anything if num is an odd number.
+            </p>
+            <p class="px-5 mt-10">2. Make an if statement that:</p>
+            <p class="px-5">Password need to have 6+ characters</p>
+            <p class="px-5">Password must not include space</p>
+          </div>
+        </section>
+        <section class="w-1/2 m-5 bg-black/90 text-slate-300">
+          <div class="p-5">
+            <p>if(num % 2 === 0) &#123;</p>
+            <p>console.log("even");</p>
+            <p>&#125;</p>
+            <p class="disclaimer mt-40">other excercise is on L02.js</p>
+          </div>
+        </section>
+      </div>
     </main>
   </body>
 </html>
