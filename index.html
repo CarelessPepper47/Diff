@@ -190,6 +190,36 @@
           </section>
           <div>
             <h1 class="mx-5">3. methods(x) that require arguments</h1>
+            <div>
+              <section
+                class="border-2 m-5 flex flex-col bg-black/80 text-white p-5 w-1/2 h-fit"
+              >
+                <p>let dom = "MateuszOlga" <span class="kom"></span></p>
+                <p>
+                  dom.indexOf("Mateusz")
+                  <span class="kom">
+                    // 0 === indexOf => does it contain (argument)
+                  </span>
+                </p>
+                <p>dom.indexOf("Olga") <span class="kom"> // 7 </span></p>
+                <p>
+                  dom.indexOf("pupsko")
+                  <span class="kom"> // -1 (not found)</span>
+                </p>
+                <p class="mt-3">
+                  dom.slice("7")
+                  <span class="kom">
+                    // "Olga" === slicing full string FROM point of the first
+                    argument (there can be second argument indicating the END of
+                    method)</span
+                  >
+                </p>
+                <p class="">
+                  dom.replace("Mateusz", "Mały Kot")
+                  <span class="kom"> // "Mały KotOlga"</span>
+                </p>
+              </section>
+            </div>
           </div>
         </div>
       </div>
