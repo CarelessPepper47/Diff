@@ -25,7 +25,6 @@ if (dzienTygodnia === "Poniedziałek") {
 }
 
 function getColor(phrase){
-    //WRITE YOUR CODE BETWEEN THIS LINE: ↓ ↓ ↓ ↓ 
     if (phrase === "stop") {
         console.log("red");
     }
@@ -39,3 +38,53 @@ function getColor(phrase){
         console.log("purple");
     }
 }
+
+// Change the value of num, so that "YOU GOT ME!" prints out
+const num = 102; // THIS IS THE ONLY LINE YOU SHOULD CHANGE :) 
+
+// DO NOT TOUCH ANYTHING BELOW (please) 
+if(num <= 100) {
+    if(num >= 50) {
+        console.log("HEY!");
+    }
+} else {
+    if (num < 103) {
+        if(num % 2 === 0){
+            console.log("YOU GOT ME!");
+        }
+    }
+}
+
+if (password.length >= 6 && password.indexOf(" ") === -1) {
+    console.log("Super!") 
+}  else {
+        console.log("Słabiutko.")
+}
+
+const mystery = 'Pooooo7'; //CHANGE THIS VALUE TO MAKE THE CONDITIONAL BELOW TRUE
+
+
+
+// LEAVE THIS CODE ALONE! (pretty please)
+if(mystery[0] === 'P' && mystery.length > 5 && mystery.indexOf('7') !== -1){
+    console.log("YOU GOT IT!!!");
+}
+
+let wiek = parseInt(prompt("Podaj wiek"));
+
+if (wiek >= 0 && wiek < 5 || wiek >= 65) {
+    console.log("Free!")
+} else if (wiek < 0 ) {
+    alert("Bez jajków")
+} else if (wiek < 65 && wiek > 10) {
+    console.log("450$")
+} else if (wiek <= 10) {
+    console.log("Wskakuj")
+}
+
+let firstName = prompt("Podaj imie");
+
+if (!firstName) {
+    firstName = prompt("Musisz podać imie")
+}
+
