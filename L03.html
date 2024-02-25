@@ -22,7 +22,7 @@
               <span class="kom"> // array of numbers</span>
             </p>
             <p>
-              let rzeczy = [1, null, "pies", ture, 19]
+              let rzeczy = [1, null, "pies", true, 19]
               <span class="kom"> // mixed array</span>
             </p>
             <p>
@@ -36,6 +36,33 @@
             <p>
               rzeczy.length = 4
               <span class="kom"> // which is 5, but it's beginning with 0</span>
+            </p>
+            <p class="mt-5">
+              let tydzien = ["Poniedziałek", "Wtorek", "Środa", "Czwartek",
+              "Piątek", "Sobota", "Niedziela"]
+            </p>
+            <p>tydzien[2] <span class="kom"> // "Środa"</span></p>
+            <p>tydzien[2][0] <span class="kom"> // "Ś"</span></p>
+            <p>tydzien[2][3] <span class="kom"> // "d"</span></p>
+            <p class="mt-5">
+              tydzien[2] = "dupa"
+              <span class="kom"> // "dupa" wchodzi w miejsce "Środa"</span>
+            </p>
+            <p>
+              tydzien
+              <span class="kom"> // ["Poniedziałek", "Wtorek",</span>
+              <span class="disclaimer">"dupa"</span>
+              <span class="kom">
+                "Czwartek", "Piątek", "Sobota", "Niedziela"]</span
+              >
+            </p>
+            <p class="mt-5">
+              tydzien[10] = "jopjopjop"
+              <span class="kom">
+                // ["Poniedziałek", "Wtorek", "dupa", "Czwartek", "Piątek",
+                "Sobota", "Niedziela", undefined, undefined, undefined,
+                "jopjopjop"]</span
+              >
             </p>
           </div>
         </div>
