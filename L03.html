@@ -128,6 +128,8 @@
                 zasada jak w przypadku push, tylko na start</span
               >
             </p>
+            <hr class="my-5 opacity-50" />
+            <p class="disclaimer">More examples in L03.js</p>
           </div>
           <div class="p-5 bg-slate-200">
             <p>- concat <span class="kom"> // merge arrays</span></p>
@@ -164,7 +166,13 @@
             </p>
             <p>let dniWeekendowe = ["Sobota", "Niedziela"]</p>
             <hr class="my-5 opacity-50" />
-            <p>let pelnyTydzien = dniPracujace.concat(dniWeekendowe);</p>
+            <p>
+              let pelnyTydzien = dniPracujace.concat(dniWeekendowe)
+              <span class="kom">
+                // ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek",
+                "Sobota", "Niedziela"]</span
+              >
+            </p>
             <p>
               pelnyTydzien.includes("Sobota") <span class="kom"> // true</span>
             </p>
@@ -173,6 +181,45 @@
             <p>
               dniWeekendowe.reverse()
               <span class="kom"> // ["Niedziela", "Sobota"]</span>
+            </p>
+            <hr class="my-5 opacity-50" />
+            <p>
+              pelnyTydzien.slice(3)
+              <span class="kom">
+                // ["Czwartek", "Piątek", "Sobota", "Niedziela"] > wycina DO
+                3ciego indexu</span
+              >
+            </p>
+            <p>
+              pelnyTydzien.slice(3, 5)
+              <span class="kom">
+                // ["Czwartek", "Piątek"] > wycina od 3ciego indexu
+                <b class="disclaimer">do 5tego WŁĄCZNIE</b></span
+              >
+            </p>
+            <p>
+              pelnyTydzien.slice(-3)
+              <span class="kom"> // ["Piątek", "Sobota", "Niedziela"]</span>
+            </p>
+            <hr class="my-5 opacity-50" />
+            <p class="disclaimer w-1/2 mx-auto text-center">
+              .splice(1 - index w którym mieszamy, 0/1/2... - ile rzeczy ma
+              zostać usuniętych, "string" - co jest wstawiane (może być nic))
+            </p>
+            <p>
+              pelnyTydzien.splice(1, 0, "mordoklejka")
+              <span class="kom">
+                // ["Poniedziałek", "mordoklejka", "Wtorek", "Środa",
+                "Czwartek", "Piątek", "Sobota", "Niedziela"]</span
+              >
+            </p>
+            <p>
+              pelnyTydzien.splice(1, 1, "To Był Żarcik, ale dnia tu nie ma")
+              <span class="kom">
+                // ["Poniedziałek", "To Był Żarcik, ale dnia tu nie ma",
+                "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota",
+                "Niedziela"]</span
+              >
             </p>
           </div>
         </div>
