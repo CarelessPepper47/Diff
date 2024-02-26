@@ -40,12 +40,39 @@ let uzytkownicy = [
     wiek: 26,
     but: 40,
     log: true},
+
     {imie: "Olek",
     wiek: 30,
     but: 35,
     log: true},
+
     {imie: "Kubeb",
     wiek: 17,
     but: 39,
     log: false}
 ]
+
+uzytkownicy.push({
+    imie: "Nataniel",
+    wiek: 77,
+    but: 44,
+    log: true
+})
+
+console.log(uzytkownicy)
+
+tydzien[10] = "jopjopjop";
+
+tydzien.push("8smy dzien tygodnia");
+
+console.log(tydzien);
+
+tydzien.pop();
+
+let zapisanyPop = tydzien.pop()
+
+console.log(tydzien)
+console.log(zapisanyPop)
+
+
+
