@@ -56,7 +56,7 @@ uzytkownicy.push({
     imie: "Nataniel",
     wiek: 77,
     but: 44,
-    log: true
+    log: false
 })
 
 console.log(uzytkownicy)
@@ -73,6 +73,28 @@ let zapisanyPop = tydzien.pop()
 
 console.log(tydzien)
 console.log(zapisanyPop)
+
+let rozwalTydzien = tydzien.shift();
+
+console.log(rozwalTydzien);
+
+uzytkownicy.unshift({
+    imie: "VIP",
+    wiek: NaN,
+    but: null,
+    log: false
+})
+
+
+// Proste ćwiczenie
+
+const planets = ['The Moon','Venus', 'Earth', 'Mars', 'Jupiter']; //DO NOT TOUCH THIS LINE!
+
+// YOUR CODE GOES BELOW THIS LINE:
+
+planets.shift();
+planets.push("Saturn");
+planets.unshift("Mercury");
 
 
 
