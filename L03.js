@@ -96,5 +96,13 @@ planets.shift();
 planets.push("Saturn");
 planets.unshift("Mercury");
 
+let dniPracujace = ["Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek"];
+let dniWeekendowe = ["Sobota", "Niedziela"];
+
+let pelnyTydzien = dniPracujace.concat(dniWeekendowe);
+
+dniPracujace.reverse();
+
+
 
 

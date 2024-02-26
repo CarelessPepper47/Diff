@@ -129,6 +129,52 @@
               >
             </p>
           </div>
+          <div class="p-5 bg-slate-200">
+            <p>- concat <span class="kom"> // merge arrays</span></p>
+            <p>- includes <span class="kom"> // look for a value</span></p>
+            <p>
+              - indexOf
+              <span class="kom"> // just like string.indexOf</span>
+            </p>
+            <p>
+              - join
+              <span class="kom"> // creates a string from an array</span>
+            </p>
+            <p>
+              - reverse
+              <span class="kom"> // reverse an array</span>
+            </p>
+            <p>
+              - slice
+              <span class="kom"> // copies a portion on an array</span>
+            </p>
+            <p>
+              - splice
+              <span class="kom"> // removes/replaces element</span>
+            </p>
+            <p>
+              - sort
+              <span class="kom"> // sorts an array</span>
+            </p>
+          </div>
+          <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+            <p>
+              let dniPracujace = ["Poniedziałek", "Wtorek", "Środa", "Czwartek",
+              "Piątek"]
+            </p>
+            <p>let dniWeekendowe = ["Sobota", "Niedziela"]</p>
+            <hr class="my-5 opacity-50" />
+            <p>let pelnyTydzien = dniPracujace.concat(dniWeekendowe);</p>
+            <p>
+              pelnyTydzien.includes("Sobota") <span class="kom"> // true</span>
+            </p>
+            <p>pelnyTydzien.indexOf("Sobota") <span class="kom"> // 5</span></p>
+            <hr class="my-5 opacity-50" />
+            <p>
+              dniWeekendowe.reverse()
+              <span class="kom"> // ["Niedziela", "Sobota"]</span>
+            </p>
+          </div>
         </div>
       </section>
       <form action="" class="">
@@ -137,6 +183,7 @@
           <input type="number" name="" id="wiek" class="m-2" />
           <input type="number" name="" id="but" class="m-2" />
           <input type="checkbox" name="" id="logIn" class="m-2" />
+          <button type="submit" class="bg-red-700">Submit</button>
         </div>
       </form>
     </main>
