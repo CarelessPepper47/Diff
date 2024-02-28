@@ -47,7 +47,15 @@
           <p>uzytkownicy["imie"] <span class="kom"> // undefined</span></p>
           <p>uzytkownicy[1]["imie"] <span class="kom"> // "Olek"</span></p>
           <p>uzytkownicy[2]["but"] <span class="kom"> // "39"</span></p>
+          <p>
+            uzytkownicy[1].imie <span class="kom"> // "Olek" > also works</span>
+          </p>
+          <p class="m-2 ml-5">
+            Every <span class="kom">key</span> is converted into "string"
+          </p>
+          <p>uzytkownicy[1].imie = "Geh" // "Geh" > "Olek"</p>
         </div>
+        <p class="disclaimer">mateuszek on L04.js</p>
       </section>
     </main>
   </body>
