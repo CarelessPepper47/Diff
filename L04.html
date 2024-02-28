@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="./moje.css" />
     <script src="L04.js"></script>
   </head>
-  <body class="bg-slate-400">
+  <body class="bg-slate-400" onload="">
     <main class="">
       <section>
         <h1 class="text-3xl m-5 font-semibold">1. Introduction</h1>
@@ -43,6 +43,11 @@
           Accessing data inside is used by <span class="kom">keys</span> and NOT
           by index
         </p>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>uzytkownicy["imie"] <span class="kom"> // undefined</span></p>
+          <p>uzytkownicy[1]["imie"] <span class="kom"> // "Olek"</span></p>
+          <p>uzytkownicy[2]["but"] <span class="kom"> // "39"</span></p>
+        </div>
       </section>
     </main>
   </body>

@@ -4,7 +4,7 @@
   },
 
   "scripts": {
-    "build-tailwind": "npx tailwindcss -i ./tw.css -o ./main.css --watch"
+    "wind": "npx tailwindcss -i ./tw.css -o ./main.css --watch"
   }
 }
 
