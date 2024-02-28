@@ -8,6 +8,53 @@
     <script src="L05.js"></script>
   </head>
   <body>
-    <main></main>
+    <main>
+      <section>
+        <h1 class="text-3xl m-5 font-semibold">1. Introduction</h1>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>for (let i = 1; i <= 10; i++) {}</p>
+          <p class="kom">
+            for loop (starts at i (1); i stops at 10; add 1 to i each time)
+          </p>
+          <p class="disclaimer">Much more examples in L05.js</p>
+        </div>
+        <p>
+          So basically, for loop in the 1st phase we make a variable JUST for
+          the loop, usually its "i"; middle part is a boolean expression, and
+          will continue to execute as long as its true (i (1) IS less than 10,
+          therefore its true); the last part is updating the value of i
+        </p>
+      </section>
+      <section>
+        <h1 class="text-3xl m-5 font-semibold">2. Nested Loops</h1>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>let <span class="text-blue-400">przyklad</span> = "Z dupy";</p>
+          <p>
+            for (<span class="text-green-400">i</span> = 0;
+            <span class="text-green-400">i</span> <= 5;
+            <span class="text-green-400">i</span>++) {
+          </p>
+          <p class="ml-5">
+            console.log("Outer: Gówno", <span class="text-green-400">i</span>);
+          </p>
+          <p class="ml-5">
+            for (<span class="text-red-400">j</span> = 0;
+            <span class="text-red-400">j</span> <
+            <span class="text-blue-400">przyklad</span>.length;
+            <span class="text-red-400">j</span>++) {
+          </p>
+          <p class="ml-10">
+            console.log("Inner:",
+            <span class="text-blue-400">przyklad</span>[<span
+              class="text-red-400"
+              >j</span
+            >])
+          </p>
+          <p class="ml-5">}</p>
+          <p class="">}</p>
+        </div>
+        <p>For each Outer loop, every Inner loop completes its full cycle</p>
+      </section>
+    </main>
   </body>
 </html>
