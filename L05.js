@@ -48,3 +48,26 @@ for (i = 0; i <= 5; i++) {
         console.log("Inner:", przyklad[j])
     }
 }
+
+let psz = "psz";
+
+for (i = 1; i < 6; i += 2) {
+    console.log(i, psz.toUpperCase())
+    for (j = i/2; j < 3 ; j++) {
+        console.log(j, "dum")
+    }
+}
+
+let seatingCharts = [
+    ["Olek", "Alek", "Bolek"],
+    ["Ogla", "Googla", "That's Rojo Caliente", "Łogoła"],
+    ["Le", "Isla", "Bonita"]
+]
+
+for (i = 0; i < seatingCharts.length; i++) {
+    const row = seatingCharts[i];
+    console.log(`Row ${i+1}`)
+    for (j = 0; j < row.length; j++) {
+        console.log(`       ${row[j]}`)
+    }
+}
