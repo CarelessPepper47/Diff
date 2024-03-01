@@ -61,7 +61,7 @@ for (i = 1; i < 6; i += 2) {
 let seatingCharts = [
     ["Olek", "Alek", "Bolek"],
     ["Ogla", "Googla", "That's Rojo Caliente", "Łogoła"],
-    ["Le", "Isla", "Bonita"]
+    ["La", "Isla", "Bonita"]
 ]
 
 for (i = 0; i < seatingCharts.length; i++) {
@@ -71,3 +71,40 @@ for (i = 0; i < seatingCharts.length; i++) {
         console.log(`       ${row[j]}`)
     }
 }
+console.log("CIAAAAK");
+
+
+let num = 0;
+
+while (num <= 5) {
+console.log(num);
+num++;
+}
+
+// const SEKRET = "Ciak Ciak Ciaaak"
+
+// let zgadnij = prompt("Miłość miłość miłość?")
+
+// while (zgadnij !== SEKRET) {
+//     console.log("MIŁOŚĆ MIŁOŚĆ MIŁOŚĆ??!")
+//     zgadnij = prompt("Hmmmm??")
+// }
+
+
+let targetNum = Math.floor(Math.random() * 10);
+let guess = Math.floor(Math.random() * 10);
+
+let ile = 0;
+
+while (true) {
+    guess = Math.floor(Math.random() * 10);
+    ile++;
+    if (guess === targetNum) {
+        console.log(`Yaaaaz, the number was ${targetNum}`);
+        break;
+    }
+    else {
+        console.log(`Nope, not ${guess}`)
+    }
+}
+console.log(`To zabralo ${ile} prób`)
