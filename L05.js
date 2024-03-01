@@ -108,3 +108,44 @@ while (true) {
     }
 }
 console.log(`To zabralo ${ile} prób`)
+
+
+
+
+
+let max = parseInt(prompt("Let's play a game, give me a number", "17"))
+
+while (!max) {
+    max = parseInt(prompt("Must be a number", "17"))
+}
+
+let target = Math.floor(Math.random() * max) + 1;
+
+let makeAGuess = parseInt(prompt("Make a guess"));
+
+while (!makeAGuess) {
+    makeAGuess = parseInt(prompt("Must be a number", "GUESS!"))
+}
+
+let attempts = 0;
+
+while (parseInt(makeAGuess) !== target) {
+    if (makeAGuess === "GG") {
+        break;
+    }
+    attempts++;
+    if (makeAGuess > target) {
+        console.log("Too big")
+        makeAGuess = prompt("Again");
+    } else if (makeAGuess < target) {
+        console.log("Too low")
+        makeAGuess = prompt("Again");
+    } else if (makeAGuess === target) {
+        console.log(`Bravo! It was ${makeAGuess}`)
+    }
+}
+if (makeAGuess === "GG") {
+    console.log("Cienias")
+} else {
+    console.log(`It took ${attempts} attempts`)
+}
