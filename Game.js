@@ -128,23 +128,32 @@ let monsters = [
     
 ]
 
-let monster;
+let monster = Math.floor(Math.random() * monsters.length) +1;
+
+
+let rolls = 0;
 
 let randomNumber;
 
 function rollDice() {
-    
+
     if (randomNumber < 3) {
         alert(`An Imp is nearby!`)
         monster = monsters[1]
+        rolls++
     } else if (randomNumber >= 3 ) { // && rollDice < 6
         alert(`A Gargoyle is nearby. Be cautious!`)
         monster = monsters[0]
+        rolls++
     }
     return randomNumber = Math.floor(Math.random() * 6) + 1;
 }
 
 
 function encounter() {
-    console.log(`${playerName} fights with ${monster.monsterName}`)
+    if (rolls === 0) {
+        console.log("There is nothing to fight jackass.")
+    } else {
+        console.log(`${playerName} fights with ${monster.monsterName}`) 
+    }
 }
