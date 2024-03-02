@@ -6,6 +6,8 @@ let dice20 = Math.floor(Math.random() * 20) + 1;
 
 let playerName = prompt("Podaj swoje imię", "Bubol")
 
+let chest = 5; // dorobić tu o wiele wiecej opcji
+
 const knife = {
     damage: 2,
     times: 2,
@@ -135,18 +137,36 @@ let rolls = 0;
 
 let randomNumber;
 
+// for (i = randomNumber/2; i <= randomNumber; i *= 2) {
+
+// }
+
+let decision;
+
 function rollDice() {
 
     if (randomNumber < 3) {
-        alert(`An Imp is nearby!`)
+        console.log(`An Imp is nearby!`)
         monster = monsters[1]
         rolls++
-    } else if (randomNumber >= 3 ) { // && rollDice < 6
-        alert(`A Gargoyle is nearby. Be cautious!`)
+    } else if (randomNumber >= 3 && randomNumber < 6 ) { // && rollDice < 6
+        console.log(`A Gargoyle is nearby. Be cautious!`)
         monster = monsters[0]
         rolls++
+    } else if (randomNumber === 6) {
+        console.log(`There is a Chest!`)
+        decision = prompt("Do you want to open it?", "Yes or No")
+        return randomNumber = Math.floor(Math.random() * 6) + 1;
     }
     return randomNumber = Math.floor(Math.random() * 6) + 1;
+}
+
+if (decision === "Yes") {
+    player.money = player.money + 5;
+    console.log("Hajs jest")
+} else {
+    player.luck = player.luck + 1;
+    console.log("Brak Hajsu")
 }
 
 
