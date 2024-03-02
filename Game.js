@@ -18,6 +18,18 @@ const sword = {
     cost: 2
 }
 
+const shield = {
+    damage: 0,
+    times: 1,
+    cost: 1
+}
+
+const staff = {
+    damage: 10,
+    times: 1,
+    cost: 3
+}
+
 const classes = [
     {
         className: "Rogue",
@@ -25,41 +37,68 @@ const classes = [
         health: 10,
         actions: 4,
         luck: 5,
-        backpack: ["key"]
+        backpack: ["key"],
+        coins: 4
     },
     {
         className: "Knight",
-        weapon: sword,
+        weapon: [sword, shield],
         health: 15,
         actions: 5,
         luck: 2,
-        backpack: []
+        backpack: [],
+        coins: 5
+    },
+    {
+        className: "Mage",
+        weapon: [staff],
+        health: 7,
+        actions: 4,
+        luck: 3,
+        backpack: [],
+        coins: 1
     }
 ]
 
+let kill = 0;
+
 let attempts = 0;
 
-let wybierzKlase = prompt("Choose Class: Knight, Rogue")
+let wybierzKlase = prompt("Choose Class: Knight, Rogue or Mage")
 
-while (wybierzKlase !== classes[0].className || classes[1].className) {
+while (wybierzKlase !== classes[0].className || classes[1].className || classes[2].className) {
     if (wybierzKlase === classes[0].className) {
         console.log(`You are ${classes[0].className} and your name is ${playerName}`)
         break;
     } else if (wybierzKlase === classes[1].className) {
         console.log(`You are ${classes[1].className} and your name is ${playerName}`)
         break;
+    } else if (wybierzKlase === classes[2].className) {
+        console.log(`You are ${classes[2].className} and your name is ${playerName}`)
+        break;
     }
+    
     if (attempts < 5) {
         attempts++
-        wybierzKlase = prompt("It has to be Knight or Rogue")
+        wybierzKlase = prompt("It has to be Knight, Rogue or Mage")
     }
     else if (attempts >= 5 && attempts <= 15) {
         attempts++
-        wybierzKlase = prompt("Omg dude! Knight or Rogue!")
+        wybierzKlase = prompt("Omg dude! Knight, Rogue or Mage!")
     } else  if (attempts > 15) {
         attempts++
         wybierzKlase = prompt("DUDE!")
     }
+}
+
+let chosenOne;
+
+if (wybierzKlase === classes[0].className) {
+    chosenOne = classes[0];
+} else if (wybierzKlase === classes[1].className) {
+    chosenOne = classes[1];
+} else {
+    chosenOne = classes[2]
 }
 
 
@@ -67,8 +106,45 @@ let coin = 1;
 
 let player = {
     name: playerName,
-    money: 10 + coin,
-    class: wybierzKlase
+    money: 10 + kill + chosenOne.coins,
+    class: wybierzKlase,
+    weapon: chosenOne.weapon,
+    hp: chosenOne.health,
+    actions: chosenOne.actions,
+    luck: chosenOne.luck
 }
 
-alert("")
+let monsters = [
+    {
+        monsterName: "Gargoyle",
+        health: 8,
+        damgae: 2,
+    },
+    {
+        monsterName: "Imp",
+        health: 5,
+        damage: 1,
+    }
+    
+]
+
+let monster;
+
+let randomNumber;
+
+function rollDice() {
+    
+    if (randomNumber < 3) {
+        alert(`An Imp is nearby!`)
+        monster = monsters[1]
+    } else if (randomNumber >= 3 ) { // && rollDice < 6
+        alert(`A Gargoyle is nearby. Be cautious!`)
+        monster = monsters[0]
+    }
+    return randomNumber = Math.floor(Math.random() * 6) + 1;
+}
+
+
+function encounter() {
+    console.log(`${playerName} fights with ${monster.monsterName}`)
+}
