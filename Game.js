@@ -6,8 +6,6 @@ let dice20 = Math.floor(Math.random() * 20) + 1;
 
 let playerName = prompt("Podaj swoje imię", "Bubol")
 
-let chest = 5; // dorobić tu o wiele wiecej opcji
-
 const knife = {
     damage: 2,
     times: 2,
@@ -18,6 +16,23 @@ const sword = {
     damage: 4,
     times: 1,
     cost: 2
+}
+
+const battleAxe = {
+    damage: 5,
+    times: 2,
+    cost: 3
+}
+
+const pickle = {
+    healthOnUse: 2
+}
+
+const legendarySword = {
+    damage: 6,
+    times: 1,
+    cost: 1,
+    healthOnUse: 2
 }
 
 const shield = {
@@ -31,6 +46,8 @@ const staff = {
     times: 1,
     cost: 3
 }
+
+let chest = [5, legendarySword, "Rubbish", pickle, battleAxe, 2, 7, 1, "Rubbish"];
 
 const classes = [
     {
@@ -113,7 +130,8 @@ let player = {
     weapon: chosenOne.weapon,
     hp: chosenOne.health,
     actions: chosenOne.actions,
-    luck: chosenOne.luck
+    luck: chosenOne.luck,
+    backpack: chosenOne.backpack
 }
 
 let monsters = [
@@ -137,6 +155,8 @@ let rolls = 0;
 
 let randomNumber;
 
+let chestDrop = Math.floor(Math.random() * chest.length);
+
 // for (i = randomNumber/2; i <= randomNumber; i *= 2) {
 
 // }
@@ -145,7 +165,7 @@ let decision;
 
 function rollDice() {
 
-    if (randomNumber < 3) {
+    if (randomNumber < 3 && randomNumber > 1) {
         console.log(`An Imp is nearby!`)
         monster = monsters[1]
         rolls++
@@ -156,6 +176,24 @@ function rollDice() {
     } else if (randomNumber === 6) {
         console.log(`There is a Chest!`)
         decision = prompt("Do you want to open it?", "Yes or No")
+        if (decision === "Yes") {
+            if (chest[chestDrop] === Number) {
+            player.money += chest[chestDrop]
+            console.log(`You acquired ${chest[chestDrop]} coins!`)
+            chestDrop = Math.floor(Math.random() * chest.length);
+            return randomNumber = Math.floor(Math.random() * 6) + 1;
+        } else {
+            player.backpack.push(chest[chestDrop])
+            console.log(`You acquired ${chest[chestDrop]}!`)
+            chestDrop = Math.floor(Math.random() * chest.length);
+            return randomNumber = Math.floor(Math.random() * 6) + 1;
+        }
+        } else if (decision === "Break") {
+                console.log("You destroyed Chest and acquired Rubbish")
+                player.backpack.push("Rubbish")
+        } else if (decision !== "Yes") {
+            console.log("You decided not to open Chest and move along.")
+        }
         return randomNumber = Math.floor(Math.random() * 6) + 1;
     }
     return randomNumber = Math.floor(Math.random() * 6) + 1;
