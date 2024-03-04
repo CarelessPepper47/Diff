@@ -45,7 +45,7 @@ const pickle = {
     healthOnUse: 2
 }
 
-let chest = [5, {legendarySword: eQItems[3]}, "Rubbish", {pickle: pickle}, {battleAxe: eQItems[2]}];
+let chest = [5, {legendarySword: eQItems[3]}, "Rubbish", {pickle: pickle}, {battleAxe: eQItems[2]}, {shield:eQItems[4]}];
 
 const classes = [
     {
@@ -55,7 +55,6 @@ const classes = [
         actions: 4,
         luck: 5,
         backpack: ["key"],
-        coins: 4
     },
     {
         className: "Knight",
@@ -64,7 +63,6 @@ const classes = [
         actions: 5,
         luck: 2,
         backpack: [eQItems[4]],
-        coins: 5
     },
     {
         className: "Mage",
@@ -73,7 +71,6 @@ const classes = [
         actions: 4,
         luck: 3,
         backpack: [eQItems[3]],
-        coins: 1
     }
 ]
 
@@ -120,11 +117,13 @@ if (wybierzKlase === classes[0].className) {
 
 let frags = [];
 
-let coin = 1;
+let coin;
+
+let reward = [];
 
 let player = {
     name: playerName,
-    money: 10 + kill + chosenOne.coins,
+    money: parseInt(10 + kill + reward),
     class: wybierzKlase,
     weapon: chosenOne.weapon,
     hp: chosenOne.health,
@@ -338,10 +337,6 @@ function rollDice() {
 // }
 
 
-let weaponDamage = player.weapon[Object.keys(player.weapon)[0]].damage;
-let weaponTimes = Object.values(player.weapon)[0].times;
-let trueAttack = weaponDamage * weaponTimes;
-
 
 function encounter() {
     if (rolls === 0) {
@@ -352,6 +347,9 @@ function encounter() {
         let attack = prompt("Zaatakuj");
         if (attack === "Attack") {
             combat = true;
+            let weaponDamage = player.weapon[Object.keys(player.weapon)[0]].damage // CHRYSTE PANIE JAK WYCIAGNAC DAMAGE Z OBECNIE UBRANEJ BRONI
+            let weaponTimes = player.weapon[Object.keys(player.weapon)[0]].times
+            let trueAttack = weaponDamage * weaponTimes;
             while (combat) {
                 console.log(`You attacked for ${weaponDamage}, ${weaponTimes} times!`) 
                 monster.health -= trueAttack; 
@@ -363,11 +361,13 @@ function encounter() {
                 } else if (trueAttack >= monster.health) {
                     attack;
                     kill++
-                    player.money += kill
+                    coin = Math.floor(Math.random() * 100);
+                    reward.push(parseInt(coin))
+                    player.money += parseInt(kill + reward.pop([0]))
                     randomNumber = 0;
                     rolls = 0;
                     console.log(`You killed ${monster.monsterName}!`)
-                    console.log(`You've got ${kill} coins!`)
+                    console.log(`You've got ${kill+coin} coins!`)
                     frags.push(monster.monsterName)
                     if (monster.health <= 0) {
                         monster.health = Math.floor(Math.random() * 30) +1;
