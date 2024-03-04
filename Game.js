@@ -307,33 +307,38 @@ function rollDice() {
         } else if (randomNumber === 20) {
         
             function leaveMerchant() {
-                while (!leave) {
-                let leave = true;
+
+                let decyzja;
+
+                while (true) {
+                    decyzja = parseInt(prompt(`What do you want to do next? Here are your options: \n1. Talk (${merchant.talk}) \n2. Shop \n3. Leave`));
+                    // Check if the input is a valid number between 1 and 3
+                    if (!isNaN(decyzja) && decyzja >= 1 && decyzja <= 3) {
+                        break; // Break the loop if the input is valid
+                    } else {
+                        console.log("Invalid choice! Please enter a number between 1 and 3.");
+                    }
+                    if (decyzja === 1) {
+                        console.log(`Merchant: ${merchant.talk}`);
+                    } else if (decyzja === 2) {
+                        console.log("Merchant: Welcome to my shop!");
+                        console.log("Available items:", merchant.shop);
+                    } else if (decyzja === 3) {
+                        leave = false;
+                        // Activate the leave function
+                        merchant.leave();
+                        rolls = 0;
+                        break;
+                        }
+                    else {
+                            console.log("Merchant: What do you want to do next?");      
+                        } 
                 
                 // Prompt the user to choose an action
                 let decyzja = prompt(`What do you want to do next? Here are your options: \n1. Talk (${merchant.talk}) \n2. Shop \n3. Leave`);
                 
                 // Convert the choice to lowercase for case-insensitive comparison
-                decyzja = decyzja.toLowerCase();
-                        if (decyzja === 1) {
-                                console.log(`Merchant: ${merchant.talk}`);
-                                break;
-                        }
-                            else if (decyzja === 2) {
-                                console.log("Merchant: Welcome to my shop!");
-                                console.log("Available items:", merchant.shop);
-                                break;
-                            }
-                            else if (decyzja === 3) {
-                                leave = false;
-                                // Activate the leave function
-                                merchant.leave();
-                                rolls = 0;
-                                break;
-                            }
-                            else {
-                                console.log("Merchant: What do you want to do next?");      
-                            }                
+                decyzja = decyzja.toLowerCase();               
             }
         }
             leaveMerchant()
@@ -343,6 +348,23 @@ function rollDice() {
             console.log("Nothing happens, go futher");
             return randomNumber = Math.floor(Math.random() * 20) + 1;
         }
+        if (choice === 1) {
+            console.log(`Merchant: ${merchant.talk}`);
+        } else if (choice === 2) {
+            console.log("Merchant: Welcome to my shop!");
+            console.log("Available items:", merchant.shop);
+        } else if (choice === 3) {
+            // Activate the leave function
+            merchant.leave();
+        } else {
+            console.log("Merchant: What do you want to do next?");
+        }
+
+
+
+
+
+
 // Perform actions based on user's choice
                 // switch (choice) {
                 //     case "talk":
