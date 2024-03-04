@@ -280,11 +280,13 @@ function rollDice() {
                 }
             } else {
                 console.log("Found something else:", item);
+                return randomNumber = Math.floor(Math.random() * 20) + 1;
             }
         }
     }   else if (decision === "Break") {
         console.log("You destroyed Chest and acquired Rubbish")
         player.backpack.push("Rubbish")
+        return randomNumber = Math.floor(Math.random() * 20) + 1;
     } 
         } else {
             console.log("Nothing happens, go futher");
@@ -396,7 +398,35 @@ function encounter() {
         //     monster.health = Math.floor(Math.random() * 30)
         // }
         // combat = false;
-    
+
+        function chooseWeaponToEquip() {
+            console.log("Available Weapons:");
+            // Iterate over the backpack and display the weapons available for selection
+            player.backpack.forEach((item, index) => {
+                if (typeof item === 'object') {
+                    let itemName = Object.keys(item)[0];
+                    console.log(`${index + 1}: ${itemName}`);
+                }
+            });
+        
+            let choice = prompt("Enter the index of the weapon to equip:");
+            if (choice === "Back") {
+                console.log("Canceled.");
+                return; // Cancel the function
+            }
+            choice = parseInt(choice)
+            if (!isNaN(choice) && choice >= 1 && choice <= player.backpack.length) {
+                // If there is a previously equipped weapon, put it back in the backpack
+                if (player.weapon) {
+                    player.backpack.push(player.weapon);
+                }
+                // Equip the chosen weapon and remove it from the backpack
+                player.weapon = player.backpack.splice(choice - 1, 1)[0];
+                console.log(`You equipped:`, player.weapon);
+            } else {
+                console.log("Invalid choice!");
+            }
+        }
 
             
     
