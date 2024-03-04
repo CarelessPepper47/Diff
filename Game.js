@@ -72,7 +72,7 @@ const classes = [
         health: 7,
         actions: 4,
         luck: 3,
-        backpack: [],
+        backpack: [eQItems[3]],
         coins: 1
     }
 ]
@@ -338,6 +338,10 @@ function rollDice() {
 // }
 
 
+let weaponDamage = player.weapon[Object.keys(player.weapon)[0]].damage;
+let weaponTimes = Object.values(player.weapon)[0].times;
+let trueAttack = weaponDamage * weaponTimes;
+
 
 function encounter() {
     if (rolls === 0) {
@@ -346,14 +350,17 @@ function encounter() {
         // while (monster.health > 0) {
         console.log(`${playerName} fights with ${monster.monsterName}`) 
         let attack = prompt("Zaatakuj");
-        if (parseInt(attack) <= monster.health) {
+        if (attack === "Attack") {
             combat = true;
-            while (combat === true) {
-                console.log(`You attacked for ${attack}!`) 
-                monster.health -= attack; 
-                if (attack < monster.health) {
-                attack = prompt("Jeszcze raz");
-                } else if (attack >= monster.health) {
+            while (combat) {
+                console.log(`You attacked for ${weaponDamage}, ${weaponTimes} times!`) 
+                monster.health -= trueAttack; 
+                if (trueAttack < monster.health) {
+                    let monsterDamage = monster.damage;
+                    player.health -= monsterDamage;
+                    console.log(`${monster.monsterName} attacked you for ${monsterDamage}`)
+                    attack = prompt("Jeszcze raz");
+                } else if (trueAttack >= monster.health) {
                     attack;
                     kill++
                     player.money += kill
@@ -371,12 +378,10 @@ function encounter() {
                     monster = monsters[Math.floor(Math.random() * monsters.length)]
                     combat = false;
                     break;
-                } else {
-                    attack = prompt("Nie wydurniaj się, dawaj")
                 }
             }
         } 
-        else if (parseInt(attack) > monster.health) {
+        else if (trueAttack >= monster.health) {
                     attack;
                     kill++
                     player.money += kill
@@ -410,7 +415,7 @@ function encounter() {
             });
         
             let choice = prompt("Enter the index of the weapon to equip:");
-            if (choice === "Back") {
+            if (choice === "Cancel") {
                 console.log("Canceled.");
                 return; // Cancel the function
             }
