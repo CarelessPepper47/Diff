@@ -81,7 +81,7 @@ let kill = 0;
 
 let attempts = 0;
 
-let wybierzKlase = prompt("Choose Class: Knight, Rogue or Mage")
+let wybierzKlase = prompt("Choose Class: Knight, Rogue or Mage", "Mage")
 
 while (wybierzKlase !== classes[0].className || classes[1].className || classes[2].className) {
     if (wybierzKlase === classes[0].className) {
@@ -136,17 +136,33 @@ let monsters = [
     {
         monsterName: "Gargoyle",
         health: 8,
-        damgae: 2,
+        damage: 2,
     },
     {
         monsterName: "Imp",
         health: 5,
         damage: 1,
+    },
+    {
+        monsterName: "Dragon",
+        health: 25,
+        damage: 5,
+    },
+    {
+        monsterName: "Ghoul",
+        health: 7,
+        damage: 1.5,
+    },
+    {
+        monsterName: "Pixie",
+        health: 1,
+        damage: 2,
     }
+
     
 ]
 
-let monster = Math.floor(Math.random() * monsters.length) +1;
+let monster = monsters[Math.floor(Math.random() * monsters.length) +1]
 
 
 let rolls = 0;
@@ -161,39 +177,37 @@ let chestDrop = Math.floor(Math.random() * chest.length);
 
 let decision;
 
+let combat; 
+
 function rollDice() {
 
-    if (randomNumber < 3 && randomNumber > 1) {
-        console.log(`An Imp is nearby!`)
-        monster = monsters[1]
-        rolls++
-    } else if (randomNumber >= 3 && randomNumber < 6 ) { // && rollDice < 6
-        console.log(`A Gargoyle is nearby. Be cautious!`)
-        monster = monsters[0]
+    if (randomNumber > 1 && randomNumber < 6 || randomNumber > 7 && randomNumber < 10) {
+        monster = monsters[Math.floor(Math.random() * monsters.length)]
+        console.log(`${monster.monsterName} is nearby!`)
         rolls++
     } else if (randomNumber === 6) {
         console.log(`There is a Chest!`)
-        decision = prompt("Do you want to open it?", "Yes or No")
+        decision = prompt("Do you want to open it?")
         if (decision === "Yes") {
             if (chest[chestDrop] === Number) {
             player.money += chest[chestDrop]
             console.log(`You acquired ${chest[chestDrop]} coins!`)
             chestDrop = Math.floor(Math.random() * chest.length);
-            return randomNumber = Math.floor(Math.random() * 6) + 1;
+            return randomNumber = Math.floor(Math.random() * 20) + 1;
         } else {
             player.backpack.push(chest[chestDrop])
             if (chestDrop === 1) {
                 console.log(`You acquired Legendary Sword!`)
                 chestDrop = Math.floor(Math.random() * chest.length);
-                return randomNumber = Math.floor(Math.random() * 6) + 1;
+                return randomNumber = Math.floor(Math.random() * 20) + 1;
             } else if (chestDrop === 3) {
                 console.log(`You acquired a pickle!`)
                 chestDrop = Math.floor(Math.random() * chest.length);
-                return randomNumber = Math.floor(Math.random() * 6) + 1;
+                return randomNumber = Math.floor(Math.random() * 20) + 1;
             } else if (chestDrop === 4) { 
                 console.log(`You acquired a Battle Axe!`)
                 chestDrop = Math.floor(Math.random() * chest.length);
-                return randomNumber = Math.floor(Math.random() * 6) + 1;
+                return randomNumber = Math.floor(Math.random() * 20) + 1;
             }
             chestDrop = Math.floor(Math.random() * chest.length);
         }
@@ -203,9 +217,12 @@ function rollDice() {
         } else if (decision !== "Yes") {
             console.log("You decided not to open Chest and move along.")
         }
-        return randomNumber = Math.floor(Math.random() * 6) + 1;
+        return randomNumber = Math.floor(Math.random() * 10) + 1;
+    } else {
+        console.log("Nothing happens, go futher");
+        return randomNumber = Math.floor(Math.random() * 10) + 1;
     }
-    return randomNumber = Math.floor(Math.random() * 6) + 1;
+    return randomNumber = Math.floor(Math.random() * 20) + 1;
 }
 
 // if (decision === "Yes") {
@@ -222,14 +239,60 @@ function encounter() {
         console.log("There is nothing to fight jackass.")
     } else {
         console.log(`${playerName} fights with ${monster.monsterName}`) 
+        let attack = prompt("Zaatakuj");
+        if (parseInt(attack) <= monster.health) {
+            combat = true;
+            while (combat === true) {
+                console.log(`You attacked for ${attack}!`) 
+                monster.health -= attack; 
+                if (attack < monster.health) {
+                attack = prompt("Jeszcze raz");
+                } else if (attack >= monster.health) {
+                    attack;
+                    kill++
+                    player.money += kill
+                    randomNumber = 0;
+                    rolls = 0;
+                    console.log(`You killed ${monster.monsterName}!`)
+                    console.log(`You've got ${kill} coins!`)
+                    if (monster.health <= 0) {
+                        monster.health = Math.floor(Math.random() * 30)
+                    }
+                    monster = monsters[Math.floor(Math.random() * monsters.length)]
+                    combat = false;
+                    break;
+                } else {
+                    attack = prompt("Nie wydurniaj się, dawaj")
+                }
+            }
+        } else if (attack === "Run") {
+            randomNumber = 0;
+            rolls = 0;
+            console.log("You run away!")
+            monster = monsters[Math.floor(Math.random() * monsters.length)]
+            combat = false;
+            }
+        }
+    }
+
+            
+    
+
+
+
+
+function showMe() {
+    // console.log(player)
+    // // for (i = 0; i < size; i++) {
+    // //     console.log(Object.values(player));
+    // //     for (j = 0; j = size; j++) {
+    // //         console.log(Object.keys(player))
+    // //     }
+    // // }
+    for (const property in player) {
+        console.log(`${property}: ${JSON.stringify(player[property])}`);
     }
 }
 
-function showMe() {
-    for (i = 0; i < player.length; i++) {
-        console.log(Object.values(player));
-        for (j = 0; j < player.length; j++) {
-            console.log(Object.keys(player))
-        }
-    }
-} 
+
+
