@@ -37,7 +37,13 @@ const eQItems = [
     {damage: 10,
     times: 1,
     cost: 3}
+},
+{magicznaKula: {
+    damage: 20,
+    times: 4,
+    cost: 1}
 }
+
 ]
 
 
@@ -45,13 +51,21 @@ const pickle = {
     healthOnUse: 2
 }
 
+const merchant = {
+    name: "Merchant",
+    talk: "Gadanie",
+    shop: [eQItems[6], pickle],
+    leave: rollDice
+}
+
+
 let chest = [5, {legendarySword: eQItems[3]}, "Rubbish", {pickle: pickle}, {battleAxe: eQItems[2]}, {shield:eQItems[4]}];
 
 const classes = [
     {
         className: "Rogue",
         weapon: eQItems[0],
-        health: 10,
+        health: 125,
         actions: 4,
         luck: 5,
         backpack: ["key"],
@@ -59,7 +73,7 @@ const classes = [
     {
         className: "Knight",
         weapon: eQItems[1],
-        health: 15,
+        health: 175,
         actions: 5,
         luck: 2,
         backpack: [eQItems[4]],
@@ -67,7 +81,7 @@ const classes = [
     {
         className: "Mage",
         weapon: eQItems[5],
-        health: 7,
+        health: 100,
         actions: 4,
         luck: 3,
         backpack: [eQItems[3]],
@@ -126,7 +140,7 @@ let player = {
     money: parseInt(10 + kill + reward),
     class: wybierzKlase,
     weapon: chosenOne.weapon,
-    hp: chosenOne.health,
+    health: chosenOne.health,
     actions: chosenOne.actions,
     luck: chosenOne.luck,
     backpack: chosenOne.backpack
@@ -158,7 +172,7 @@ const monsterNames = [
 let krakenCreated = false;
 
 // Generating 50 different monsters
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < monsterNames.length; i++) {
   let monsterName = monsterNames[getRandomNumber(0, monsterNames.length - 1)];
   let health = getRandomNumber(1, 50);
   let damage = getRandomNumber(1, 10);
@@ -221,7 +235,7 @@ let monster = monsters[Math.floor(Math.random() * monsters.length) +1]
 
 let rolls = 0;
 
-let randomNumber;
+let randomNumber = 20;
 
 let chestDrop = Math.floor(Math.random() * chest.length);
 
@@ -287,6 +301,9 @@ function rollDice() {
         player.backpack.push("Rubbish")
         return randomNumber = Math.floor(Math.random() * 20) + 1;
     } 
+        } else if (randomNumber === 20) {
+            console.log(`${merchant}`)
+
         } else {
             console.log("Nothing happens, go futher");
             return randomNumber = Math.floor(Math.random() * 20) + 1;
@@ -377,6 +394,11 @@ function encounter() {
                     }
                     monster = monsters[Math.floor(Math.random() * monsters.length)]
                     combat = false;
+                    break;
+                }
+                if (player.health <= 0) {
+                    console.log("Player is defeated by the monster...");
+                    combat = false; // End combat loop
                     break;
                 }
             }
