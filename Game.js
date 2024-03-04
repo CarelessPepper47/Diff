@@ -132,7 +132,7 @@ let player = {
     luck: chosenOne.luck,
     backpack: chosenOne.backpack
 }
-// Array to store the monsters
+
 let monsters = [];
 
 // Function to generate a random number between min and max (inclusive)
@@ -155,12 +155,34 @@ const monsterNames = [
   // Add more monster names as needed
 ];
 
+// Flag to keep track if the Kraken has been created
+let krakenCreated = false;
+
 // Generating 50 different monsters
 for (let i = 0; i < 50; i++) {
+  let monsterName = monsterNames[getRandomNumber(0, monsterNames.length - 1)];
+  let health = getRandomNumber(1, 50);
+  let damage = getRandomNumber(1, 10);
+
+  // Check if the monster is a dragon and has less than 25 health
+  if (monsterName === "Dragon" && health < 25) {
+    monsterName = "Small Dragon";
+    // Limiting damage for Small Dragon
+    damage = Math.min(damage, 15);
+  }
+
+  // Check if the monster is a Kraken and if Kraken hasn't been created yet
+  if (monsterName === "Kraken" && !krakenCreated) {
+    // Cap health and damage for Kraken
+    health = 50;
+    damage = 30;
+    krakenCreated = true; // Set flag to true after creating Kraken
+  }
+
   let monster = {
-    monsterName: monsterNames[getRandomNumber(0, monsterNames.length - 1)],
-    health: getRandomNumber(1, 50),
-    damage: getRandomNumber(1, 10)
+    monsterName: monsterName,
+    health: health,
+    damage: damage
   };
   monsters.push(monster);
 }
