@@ -45,7 +45,7 @@ const pickle = {
     healthOnUse: 2
 }
 
-let chest = [5, eQItems[3], "Rubbish", pickle, eQItems[2], 2, 7, 1, "Rubbish"];
+let chest = [5, {legendarySword: eQItems[3]}, "Rubbish", {pickle: pickle}, {battleAxe: eQItems[2]}];
 
 const classes = [
     {
@@ -182,9 +182,20 @@ function rollDice() {
             return randomNumber = Math.floor(Math.random() * 6) + 1;
         } else {
             player.backpack.push(chest[chestDrop])
-            console.log(`You acquired ${chest[chestDrop]}!`)
+            if (chestDrop === 1) {
+                console.log(`You acquired Legendary Sword!`)
+                chestDrop = Math.floor(Math.random() * chest.length);
+                return randomNumber = Math.floor(Math.random() * 6) + 1;
+            } else if (chestDrop === 3) {
+                console.log(`You acquired a pickle!`)
+                chestDrop = Math.floor(Math.random() * chest.length);
+                return randomNumber = Math.floor(Math.random() * 6) + 1;
+            } else if (chestDrop === 4) { 
+                console.log(`You acquired a Battle Axe!`)
+                chestDrop = Math.floor(Math.random() * chest.length);
+                return randomNumber = Math.floor(Math.random() * 6) + 1;
+            }
             chestDrop = Math.floor(Math.random() * chest.length);
-            return randomNumber = Math.floor(Math.random() * 6) + 1;
         }
         } else if (decision === "Break") {
                 console.log("You destroyed Chest and acquired Rubbish")
@@ -197,13 +208,13 @@ function rollDice() {
     return randomNumber = Math.floor(Math.random() * 6) + 1;
 }
 
-if (decision === "Yes") {
-    player.money = player.money + 5;
-    console.log("Hajs jest")
-} else {
-    player.luck = player.luck + 1;
-    console.log("Brak Hajsu")
-}
+// if (decision === "Yes") {
+//     player.money = player.money + 5;
+//     console.log("Hajs jest")
+// } else {
+//     player.luck = player.luck + 1;
+//     console.log("Brak Hajsu")
+// }
 
 
 function encounter() {
@@ -213,3 +224,12 @@ function encounter() {
         console.log(`${playerName} fights with ${monster.monsterName}`) 
     }
 }
+
+function showMe() {
+    for (i = 0; i < player.length; i++) {
+        console.log(Object.values(player));
+        for (j = 0; j < player.length; j++) {
+            console.log(Object.keys(player))
+        }
+    }
+} 
