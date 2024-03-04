@@ -90,6 +90,8 @@ const classes = [
 
 let kill = 0;
 
+let leave = false;
+
 let attempts = 0;
 
 let wybierzKlase = prompt("Choose Class: Knight, Rogue or Mage", "Mage")
@@ -167,6 +169,7 @@ const monsterNames = [
   "Cyclops",
   // Add more monster names as needed
 ];
+
 
 // Flag to keep track if the Kraken has been created
 let krakenCreated = false;
@@ -302,12 +305,61 @@ function rollDice() {
         return randomNumber = Math.floor(Math.random() * 20) + 1;
     } 
         } else if (randomNumber === 20) {
-            console.log(`${merchant}`)
-
+        
+            function leaveMerchant() {
+                while (!leave) {
+                let leave = true;
+                
+                // Prompt the user to choose an action
+                let decyzja = prompt(`What do you want to do next? Here are your options: \n1. Talk (${merchant.talk}) \n2. Shop \n3. Leave`);
+                
+                // Convert the choice to lowercase for case-insensitive comparison
+                decyzja = decyzja.toLowerCase();
+                        if (decyzja === 1) {
+                                console.log(`Merchant: ${merchant.talk}`);
+                                break;
+                        }
+                            else if (decyzja === 2) {
+                                console.log("Merchant: Welcome to my shop!");
+                                console.log("Available items:", merchant.shop);
+                                break;
+                            }
+                            else if (decyzja === 3) {
+                                leave = false;
+                                // Activate the leave function
+                                merchant.leave();
+                                rolls = 0;
+                                break;
+                            }
+                            else {
+                                console.log("Merchant: What do you want to do next?");      
+                            }                
+            }
+        }
+            leaveMerchant()
+            
+        
         } else {
             console.log("Nothing happens, go futher");
             return randomNumber = Math.floor(Math.random() * 20) + 1;
         }
+// Perform actions based on user's choice
+                // switch (choice) {
+                //     case "talk":
+                //         console.log(`Merchant: ${merchant.talk}`);
+                //         break;
+                //     case "shop":
+                //         console.log("Merchant: Welcome to my shop!");
+                //         console.log("Available items:", merchant.shop);
+                //         break;
+                //     case "leave":
+                //         leave = false;
+                //         merchant.leave();
+                //         break;
+                //     default:
+                //         console.log("Merchant: What do you want to do next?");
+                //         break;
+                // }
     //     if (decision === "Yes") {
     //         if (chest[chestDrop] === Number) {
     //         player.money += chest[chestDrop]
