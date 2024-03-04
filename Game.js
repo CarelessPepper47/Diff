@@ -234,49 +234,96 @@ let decision;
 
 let combat; 
 
+let steps = 0;
+
 function rollDice() {
+    steps++
 
     if (randomNumber > 1 && randomNumber < 6 || randomNumber > 7 && randomNumber < 10) {
         monster = monsters[Math.floor(Math.random() * monsters.length)]
         console.log(`${monster.monsterName} is nearby!`)
         rolls++
     } else if (randomNumber === 6) {
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        chest = shuffleArray(chest);
         console.log(`There is a Chest!`)
         decision = prompt("Do you want to open it?")
         if (decision === "Yes") {
-            if (chest[chestDrop] === Number) {
-            player.money += chest[chestDrop]
-            console.log(`You acquired ${chest[chestDrop]} coins!`)
-            chestDrop = Math.floor(Math.random() * chest.length);
-            return randomNumber = Math.floor(Math.random() * 20) + 1;
-        } else {
-            player.backpack.push(chest[chestDrop])
-            if (chestDrop === 1) {
-                console.log(`You acquired Legendary Sword!`)
-                chestDrop = Math.floor(Math.random() * chest.length);
-                return randomNumber = Math.floor(Math.random() * 20) + 1;
-            } else if (chestDrop === 3) {
-                console.log(`You acquired a pickle!`)
-                chestDrop = Math.floor(Math.random() * chest.length);
-                return randomNumber = Math.floor(Math.random() * 20) + 1;
-            } else if (chestDrop === 4) { 
-                console.log(`You acquired a Battle Axe!`)
-                chestDrop = Math.floor(Math.random() * chest.length);
-                return randomNumber = Math.floor(Math.random() * 20) + 1;
+        for (let item of chest) {
+            if (typeof item === 'number') {
+                console.log(`Found ${item} coins!`);
+                player.money += item;
+                break;
+            } else if (typeof item === 'string') {
+                console.log(`Found a string: ${item}`);
+                if (item === "Rubbish") {
+                    player.backpack.push(item);
+                }
+                break;
+            } else if (typeof item === 'object') {
+                // Check if the object has a name
+                let itemName = Object.keys(item)[0];
+                if (itemName) {
+                    console.log(`Found an object named ${itemName}:`);
+                    console.log(item[itemName]);
+                    player.backpack.push(item);
+                    break;
+                } else {
+                    console.log("Found an unnamed object:", item);
+                    break;
+                }
+            } else {
+                console.log("Found something else:", item);
             }
-            chestDrop = Math.floor(Math.random() * chest.length);
         }
-        } else if (decision === "Break") {
-                console.log("You destroyed Chest and acquired Rubbish")
-                player.backpack.push("Rubbish")
-        } else if (decision !== "Yes") {
-            console.log("You decided not to open Chest and move along.")
+    }   else if (decision === "Break") {
+        console.log("You destroyed Chest and acquired Rubbish")
+        player.backpack.push("Rubbish")
+    } 
+        } else {
+            console.log("Nothing happens, go futher");
+            return randomNumber = Math.floor(Math.random() * 20) + 1;
         }
-        return randomNumber = Math.floor(Math.random() * 10) + 1;
-    } else {
-        console.log("Nothing happens, go futher");
-        return randomNumber = Math.floor(Math.random() * 10) + 1;
-    }
+    //     if (decision === "Yes") {
+    //         if (chest[chestDrop] === Number) {
+    //         player.money += chest[chestDrop]
+    //         console.log(`You acquired ${chest[chestDrop]} coins!`)
+    //         chestDrop = Math.floor(Math.random() * chest.length);
+    //         return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //     } else {
+    //         player.backpack.push(chest[chestDrop])
+    //         if (chestDrop === 1) {
+    //             console.log(`You acquired Legendary Sword!`)
+    //             chestDrop = Math.floor(Math.random() * chest.length);
+    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //         } else if (chestDrop === 3) {
+    //             console.log(`You acquired a pickle!`)
+    //             chestDrop = Math.floor(Math.random() * chest.length);
+    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //         } else if (chestDrop === 4) { 
+    //             console.log(`You acquired a Battle Axe!`)
+    //             chestDrop = Math.floor(Math.random() * chest.length);
+    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //         }
+    //         chestDrop = Math.floor(Math.random() * chest.length);
+    //     }
+    //     } else if (decision === "Break") {
+    //             console.log("You destroyed Chest and acquired Rubbish")
+    //             player.backpack.push("Rubbish")
+    //     } else if (decision !== "Yes") {
+    //         console.log("You decided not to open Chest and move along.")
+    //     }
+    //     return randomNumber = Math.floor(Math.random() * 10) + 1;
+    // } else {
+    //     console.log("Nothing happens, go futher");
+    //     return randomNumber = Math.floor(Math.random() * 10) + 1;
+    // }
     return randomNumber = Math.floor(Math.random() * 20) + 1;
 }
 
