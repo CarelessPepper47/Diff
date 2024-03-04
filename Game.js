@@ -118,6 +118,7 @@ if (wybierzKlase === classes[0].className) {
     chosenOne = classes[2]
 }
 
+let frags = [];
 
 let coin = 1;
 
@@ -255,6 +256,7 @@ function encounter() {
                     rolls = 0;
                     console.log(`You killed ${monster.monsterName}!`)
                     console.log(`You've got ${kill} coins!`)
+                    frags.push(monster.monsterName)
                     if (monster.health <= 0) {
                         monster.health = Math.floor(Math.random() * 30)
                     }
@@ -265,12 +267,27 @@ function encounter() {
                     attack = prompt("Nie wydurniaj się, dawaj")
                 }
             }
-        } else if (attack === "Run") {
-            randomNumber = 0;
-            rolls = 0;
-            console.log("You run away!")
-            monster = monsters[Math.floor(Math.random() * monsters.length)]
-            combat = false;
+        } 
+        else if (parseInt(attack) > monster.health) {
+                    attack;
+                    kill++
+                    player.money += kill
+                    randomNumber = 0;
+                    rolls = 0;
+                    console.log(`You killed ${monster.monsterName}!`)
+                    console.log(`You've got ${kill} coins!`)
+                    if (monster.health <= 0) {
+                        monster.health = Math.floor(Math.random() * 30)
+                    }
+                    monster = monsters[Math.floor(Math.random() * monsters.length)]
+                    combat = false;
+            } 
+            else if (attack === "Run") {
+                randomNumber = 0;
+                rolls = 0;
+                console.log("You run away!")
+                monster = monsters[Math.floor(Math.random() * monsters.length)]
+                combat = false;
             }
         }
     }
