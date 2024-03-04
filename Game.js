@@ -239,6 +239,7 @@ function encounter() {
     if (rolls === 0) {
         console.log("There is nothing to fight jackass.")
     } else {
+        // while (monster.health > 0) {
         console.log(`${playerName} fights with ${monster.monsterName}`) 
         let attack = prompt("Zaatakuj");
         if (parseInt(attack) <= monster.health) {
@@ -276,21 +277,21 @@ function encounter() {
                     rolls = 0;
                     console.log(`You killed ${monster.monsterName}!`)
                     console.log(`You've got ${kill} coins!`)
-                    if (monster.health <= 0) {
-                        monster.health = Math.floor(Math.random() * 30)
-                    }
-                    monster = monsters[Math.floor(Math.random() * monsters.length)]
-                    combat = false;
             } 
             else if (attack === "Run") {
                 randomNumber = 0;
                 rolls = 0;
                 console.log("You run away!")
-                monster = monsters[Math.floor(Math.random() * monsters.length)]
                 combat = false;
+                }
             }
         }
-    }
+        // monster = monsters[Math.floor(Math.random() * monsters.length)]
+        // if (monster.health <= 0) {
+        //     monster.health = Math.floor(Math.random() * 30)
+        // }
+        // combat = false;
+    
 
             
     
