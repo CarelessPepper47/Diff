@@ -132,36 +132,68 @@ let player = {
     luck: chosenOne.luck,
     backpack: chosenOne.backpack
 }
+// Array to store the monsters
+let monsters = [];
 
-let monsters = [
-    {
-        monsterName: "Gargoyle",
-        health: 8,
-        damage: 2,
-    },
-    {
-        monsterName: "Imp",
-        health: 5,
-        damage: 1,
-    },
-    {
-        monsterName: "Dragon",
-        health: 25,
-        damage: 5,
-    },
-    {
-        monsterName: "Ghoul",
-        health: 7,
-        damage: 1.5,
-    },
-    {
-        monsterName: "Pixie",
-        health: 1,
-        damage: 2,
-    }
+// Function to generate a random number between min and max (inclusive)
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// List of different monster names
+const monsterNames = [
+  "Gargoyle",
+  "Dragon",
+  "Vampire",
+  "Werewolf",
+  "Banshee",
+  "Kraken",
+  "Sphinx",
+  "Minotaur",
+  "Hydra",
+  "Cyclops",
+  // Add more monster names as needed
+];
+
+// Generating 50 different monsters
+for (let i = 0; i < 50; i++) {
+  let monster = {
+    monsterName: monsterNames[getRandomNumber(0, monsterNames.length - 1)],
+    health: getRandomNumber(1, 50),
+    damage: getRandomNumber(1, 10)
+  };
+  monsters.push(monster);
+}
+
+// let monsters = [
+//     {
+//         monsterName: "Gargoyle",
+//         health: 8,
+//         damage: 2,
+//     },
+//     {
+//         monsterName: "Imp",
+//         health: 5,
+//         damage: 1,
+//     },
+//     {
+//         monsterName: "Dragon",
+//         health: 25,
+//         damage: 5,
+//     },
+//     {
+//         monsterName: "Ghoul",
+//         health: 7,
+//         damage: 1.5,
+//     },
+//     {
+//         monsterName: "Pixie",
+//         health: 1,
+//         damage: 2,
+//     }
 
     
-]
+// ]
 
 let monster = monsters[Math.floor(Math.random() * monsters.length) +1]
 
@@ -235,6 +267,7 @@ function rollDice() {
 // }
 
 
+
 function encounter() {
     if (rolls === 0) {
         console.log("There is nothing to fight jackass.")
@@ -259,7 +292,10 @@ function encounter() {
                     console.log(`You've got ${kill} coins!`)
                     frags.push(monster.monsterName)
                     if (monster.health <= 0) {
-                        monster.health = Math.floor(Math.random() * 30)
+                        monster.health = Math.floor(Math.random() * 30) +1;
+                    }
+                    if (monster.monsterName === "Dragon") {
+                        monsters.pop(2)
                     }
                     monster = monsters[Math.floor(Math.random() * monsters.length)]
                     combat = false;
