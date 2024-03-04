@@ -6,53 +6,51 @@ let dice20 = Math.floor(Math.random() * 20) + 1;
 
 let playerName = prompt("Podaj swoje imię", "Bubol")
 
-const knife = {
-    damage: 2,
+const eQItems = [ 
+{knife: 
+    {damage: 2,
     times: 2,
-    cost: 1
-}
-
-const sword = {
-    damage: 4,
+    cost: 1}
+}, 
+{sword: 
+    {damage: 4,
     times: 1,
-    cost: 2
-}
-
-const battleAxe = {
-    damage: 5,
+    cost: 2}
+},
+{battleAxe: 
+    {damage: 5,
     times: 2,
-    cost: 3
+    cost: 3}
+},
+{legendarySword: 
+    {damage: 6,
+    times: 1,
+    cost: 1,
+    healthOnUse: 2}
+},
+{shield: 
+    {damage: 0,
+    times: 1,
+    cost: 1}
+},
+{staff: 
+    {damage: 10,
+    times: 1,
+    cost: 3}
 }
+]
+
 
 const pickle = {
     healthOnUse: 2
 }
 
-const legendarySword = {
-    damage: 6,
-    times: 1,
-    cost: 1,
-    healthOnUse: 2
-}
-
-const shield = {
-    damage: 0,
-    times: 1,
-    cost: 1
-}
-
-const staff = {
-    damage: 10,
-    times: 1,
-    cost: 3
-}
-
-let chest = [5, legendarySword, "Rubbish", pickle, battleAxe, 2, 7, 1, "Rubbish"];
+let chest = [5, eQItems[3], "Rubbish", pickle, eQItems[2], 2, 7, 1, "Rubbish"];
 
 const classes = [
     {
         className: "Rogue",
-        weapon: knife,
+        weapon: eQItems[0],
         health: 10,
         actions: 4,
         luck: 5,
@@ -61,16 +59,16 @@ const classes = [
     },
     {
         className: "Knight",
-        weapon: [sword, shield],
+        weapon: eQItems[1],
         health: 15,
         actions: 5,
         luck: 2,
-        backpack: [],
+        backpack: [eQItems[4]],
         coins: 5
     },
     {
         className: "Mage",
-        weapon: [staff],
+        weapon: eQItems[5],
         health: 7,
         actions: 4,
         luck: 3,
