@@ -459,3 +459,76 @@ function showMe() {
 
 
 
+
+// Perform actions based on user's choice
+                // switch (choice) {
+                //     case "talk":
+                //         console.log(`Merchant: ${merchant.talk}`);
+                //         break;
+                //     case "shop":
+                //         console.log("Merchant: Welcome to my shop!");
+                //         console.log("Available items:", merchant.shop);
+                //         break;
+                //     case "leave":
+                //         leave = false;
+                //         merchant.leave();
+                //         break;
+                //     default:
+                //         console.log("Merchant: What do you want to do next?");
+                //         break;
+                // }
+    //     if (decision === "Yes") {
+    //         if (chest[chestDrop] === Number) {
+    //         player.money += chest[chestDrop]
+    //         console.log(`You acquired ${chest[chestDrop]} coins!`)
+    //         chestDrop = Math.floor(Math.random() * chest.length);
+    //         return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //     } else {
+    //         player.backpack.push(chest[chestDrop])
+    //         if (chestDrop === 1) {
+    //             console.log(`You acquired Legendary Sword!`)
+    //             chestDrop = Math.floor(Math.random() * chest.length);
+    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //         } else if (chestDrop === 3) {
+    //             console.log(`You acquired a pickle!`)
+    //             chestDrop = Math.floor(Math.random() * chest.length);
+    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //         } else if (chestDrop === 4) { 
+    //             console.log(`You acquired a Battle Axe!`)
+    //             chestDrop = Math.floor(Math.random() * chest.length);
+    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
+    //         }
+    //         chestDrop = Math.floor(Math.random() * chest.length);
+    //     }
+    //     } else if (decision === "Break") {
+    //             console.log("You destroyed Chest and acquired Rubbish")
+    //             player.backpack.push("Rubbish")
+    //     } else if (decision !== "Yes") {
+    //         console.log("You decided not to open Chest and move along.")
+    //     }
+    //     return randomNumber = Math.floor(Math.random() * 10) + 1;
+    // } else {
+    //     console.log("Nothing happens, go futher");
+    //     return randomNumber = Math.floor(Math.random() * 10) + 1;
+    // }
+    // while (!leave) {
+    //     let decyzja = parseInt(prompt(`What do you want to do next? Here are your options: \n1. Talk (${merchant.talk}) \n2. Shop \n3. Leave`));
+    //     // Check if the input is a valid number between 1 and 3
+    //     if (!isNaN(decyzja) && decyzja >= 1 && decyzja <= 3) {
+    //         decyzja = parseInt(prompt(`Zdecyduj się: \n1. \n2. \n3.`))// Break the loop if the input is valid
+    //     }
+    //     if (decyzja === 1) {
+    //         console.log(`Merchant: ${merchant.talk}. Gówno!`);
+    //     } else if (decyzja === 2) {
+    //         console.log("Merchant: To są moje towary!");
+    //         console.log("Available items:", merchant.shop);
+    //     } else if (decyzja === 3) {
+    //         // Activate the leave function
+    //         merchant.leave();
+    //         rolls = 0;
+    //         leave = true;
+    //         break;
+    //         }
+    //     else {
+    //             console.log("Merchant: What do you want to do next?");  }
+    //     }
