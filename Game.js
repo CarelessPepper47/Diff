@@ -24,7 +24,7 @@ const eQItems = [
 },
 {legendarySword: 
     {damage: 6,
-    times: 1,
+    times: 4,
     cost: 1,
     healthOnUse: 2}
 },
@@ -237,7 +237,7 @@ let monster = monsters[Math.floor(Math.random() * monsters.length) +1]
 
 let rolls = 0;
 
-let randomNumber = 20;
+let randomNumber = Math.floor(Math.random() * 20) + 1;
 
 let chestDrop = Math.floor(Math.random() * chest.length);
 
@@ -253,7 +253,6 @@ let steps = 0;
 
 function rollDice() {
     steps++
-
     if (randomNumber > 1 && randomNumber < 6 || randomNumber > 7 && randomNumber < 10) {
         monster = monsters[Math.floor(Math.random() * monsters.length)]
         console.log(`${monster.monsterName} is nearby!`)
@@ -304,78 +303,14 @@ function rollDice() {
         return randomNumber = Math.floor(Math.random() * 20) + 1;
     } 
         } else if (randomNumber === 20) {
-
             console.log("You have encountered a merchant!")
             leaveMerchant()
-            rollDice()
+            leave = true;
+        } else {
+            console.log("Nothing is there, go further!")
         }
-
-
-
-
-
-
-// Perform actions based on user's choice
-                // switch (choice) {
-                //     case "talk":
-                //         console.log(`Merchant: ${merchant.talk}`);
-                //         break;
-                //     case "shop":
-                //         console.log("Merchant: Welcome to my shop!");
-                //         console.log("Available items:", merchant.shop);
-                //         break;
-                //     case "leave":
-                //         leave = false;
-                //         merchant.leave();
-                //         break;
-                //     default:
-                //         console.log("Merchant: What do you want to do next?");
-                //         break;
-                // }
-    //     if (decision === "Yes") {
-    //         if (chest[chestDrop] === Number) {
-    //         player.money += chest[chestDrop]
-    //         console.log(`You acquired ${chest[chestDrop]} coins!`)
-    //         chestDrop = Math.floor(Math.random() * chest.length);
-    //         return randomNumber = Math.floor(Math.random() * 20) + 1;
-    //     } else {
-    //         player.backpack.push(chest[chestDrop])
-    //         if (chestDrop === 1) {
-    //             console.log(`You acquired Legendary Sword!`)
-    //             chestDrop = Math.floor(Math.random() * chest.length);
-    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
-    //         } else if (chestDrop === 3) {
-    //             console.log(`You acquired a pickle!`)
-    //             chestDrop = Math.floor(Math.random() * chest.length);
-    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
-    //         } else if (chestDrop === 4) { 
-    //             console.log(`You acquired a Battle Axe!`)
-    //             chestDrop = Math.floor(Math.random() * chest.length);
-    //             return randomNumber = Math.floor(Math.random() * 20) + 1;
-    //         }
-    //         chestDrop = Math.floor(Math.random() * chest.length);
-    //     }
-    //     } else if (decision === "Break") {
-    //             console.log("You destroyed Chest and acquired Rubbish")
-    //             player.backpack.push("Rubbish")
-    //     } else if (decision !== "Yes") {
-    //         console.log("You decided not to open Chest and move along.")
-    //     }
-    //     return randomNumber = Math.floor(Math.random() * 10) + 1;
-    // } else {
-    //     console.log("Nothing happens, go futher");
-    //     return randomNumber = Math.floor(Math.random() * 10) + 1;
-    // }
     return randomNumber = Math.floor(Math.random() * 20) + 1;
 }
-
-// if (decision === "Yes") {
-//     player.money = player.money + 5;
-//     console.log("Hajs jest")
-// } else {
-//     player.luck = player.luck + 1;
-//     console.log("Brak Hajsu")
-// }
 
 function leaveMerchant() {
                 
@@ -383,27 +318,22 @@ function leaveMerchant() {
 
     while (!leave) {
         let decyzja = parseInt(prompt(`What do you want to do next? Here are your options: \n1. Talk (${merchant.talk}) \n2. Shop \n3. Leave`));
-        // Check if the input is a valid number between 1 and 3
         if (!isNaN(decyzja) && decyzja >= 1 && decyzja <= 3) {
-            decyzja = parseInt(prompt(`Zdecyduj się: \n1. \n2. \n3.`))// Break the loop if the input is valid
-        }
-        if (decyzja === 1) {
-            console.log(`Merchant: ${merchant.talk}. Gówno!`);
-        } else if (decyzja === 2) {
-            console.log("Merchant: To są moje towary!");
-            console.log("Available items:", merchant.shop);
-        } else if (decyzja === 3) {
-            // Activate the leave function
-            merchant.leave();
-            rolls = 0;
-            leave = true;
-            break;
-            }
-        else {
-                console.log("Merchant: What do you want to do next?");      
+            if (decyzja === 3) {
+                console.log("Opuszczasz sklep!")
+                leave = true;
+                randomNumber = Math.floor(Math.random * 20) +1;
+                break;
+            } else if (decyzja === 2) {
+                console.log("Merchant: To są moje towary!");
+                console.log("Available items:", merchant.shop);
+            } else if (decyzja === 1) {
+                console.log(`Merchant: ${merchant.talk}. Gówno!`);
+            } else {
+                console.log("Merchant: What do you want to do next?");
             } 
+        }
     }
-    leave = true;
 }
 
 
