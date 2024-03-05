@@ -237,7 +237,8 @@ let monster = monsters[Math.floor(Math.random() * monsters.length) +1]
 
 let rolls = 0;
 
-let randomNumber = Math.floor(Math.random() * 20) + 1;
+let randomNumber = 20;
+// let randomNumber = Math.floor(Math.random() * 20) + 1;
 
 let chestDrop = Math.floor(Math.random() * chest.length);
 
@@ -328,9 +329,13 @@ function leaveMerchant() {
             } else if (decyzja === 2) {
                 console.log("Merchant: To są moje towary!");
                 console.log("Available items:", merchant.shop);
-                for (const property in merchant) {
-                    console.log(`${property}: \n${JSON.stringify(merchant[property][0])}`);
+                for (i = 0; i < merchant.shop[Object.keys(merchant.shop)]; i++) {
+                    // weaponDamage = player.weapon[Object.keys(player.weapon)[0]].damage
+                    for (const i in merchant) {
+                    console.log(`${i}: \n${JSON.stringify(merchant.shop[Object.keys(merchant.shop)])}`);
+                    console.log("dupa")
                 }
+            }
                 itemIndex = prompt("Co chcesz kupić?")
                 purchaseItem()
                 function purchaseItem(player, merchant, itemIndex) {
