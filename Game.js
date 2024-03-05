@@ -323,10 +323,41 @@ function leaveMerchant() {
                 console.log("Opuszczasz sklep!")
                 leave = true;
                 randomNumber = Math.floor(Math.random * 20) +1;
+                rolls = 0;
                 break;
             } else if (decyzja === 2) {
                 console.log("Merchant: To są moje towary!");
                 console.log("Available items:", merchant.shop);
+                for (const property in merchant) {
+                    console.log(`${property}: \n${JSON.stringify(merchant[property][0])}`);
+                }
+                itemIndex = prompt("Co chcesz kupić?")
+                purchaseItem()
+                function purchaseItem(player, merchant, itemIndex) {
+                    // Check if the item index is valid
+                    if (itemIndex >= 0 && itemIndex < merchant.shop.length) {
+                        const selectedItem = merchant.shop[itemIndex];
+                        const itemCost = selectedItem.itemCost;
+                
+                        // Check if the player has enough money to buy the item
+                        if (player.money >= itemCost) {
+                            // Deduct the item cost from the player's money
+                            player.money -= itemCost;
+                
+                            // Add the purchased item to the player's backpack
+                            player.backpack.push(selectedItem);
+                
+                            // Remove the purchased item from the merchant's shop
+                            merchant.shop.splice(itemIndex, 1);
+                
+                            console.log(`You purchased ${Object.keys(selectedItem)[0]} for ${itemCost} coins.`);
+                        } else {
+                            console.log("You don't have enough money to buy this item.");
+                        }
+                    } else {
+                        console.log("Invalid item index.");
+                    }
+                }
             } else if (decyzja === 1) {
                 console.log(`Merchant: ${merchant.talk}. Gówno!`);
             } else {
@@ -335,6 +366,19 @@ function leaveMerchant() {
         }
     }
 }
+
+
+// // Example usage
+// console.log("Player's money before purchase:", player.money);
+// console.log("Merchant's shop before purchase:", merchant.shop);
+
+// // // Assuming the player wants to purchase the first item in the shop (index 0)
+// // purchaseItem(player, merchant, 0);
+
+// console.log("Player's money after purchase:", player.money);
+// console.log("Player's backpack after purchase:", player.backpack);
+// console.log("Merchant's shop after purchase:", merchant.shop);
+
 
 
 
