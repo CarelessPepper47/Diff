@@ -34,23 +34,32 @@ function setGame() {
     dwaStart()
 }
 
-function resetGame() {
+// function resetGame() {
 
-for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
-        if (!board[r][c] == 0 ) {
-            board = [
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0],
-            [0, 0, 0, 0]
-            ]
-        
-            }
+// for (let r = 0; r < rows; r++) {
+//     for (let c = 0; c < columns; c++) {
+//         if (!board[r][c] == 0 ) {
+//             board[r][c] = 0;        
+//             }
+//         }
+//     }
+//     dwaStart()
+//     dwaStart()
+// }
+
+function resetGame() {
+    for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns; c++) {
+            board[r][c] = 0;
+            let tile = document.getElementById(r.toString() + "-" + c.toString());
+            let num = 0;
+            updateTile(tile, num); 
         }
     }
-    dwaStart()
-    dwaStart()
+    score = 0; // Reset score
+    document.getElementById("score").innerText = score; // Update score
+    dwaStart(); // Add new random tiles
+    dwaStart();
 }
 
 
