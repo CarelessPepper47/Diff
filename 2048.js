@@ -73,7 +73,7 @@ function updateTile(tile, num) {
     return row.filter(num => num != 0);
  }
 
- function slide(row) {
+ function slideL(row) {
     row = filterZero(row);
     for (let i = 0; i < row.length - 1; i++) {
         if (row[i] == row[i+1]) {
@@ -106,7 +106,7 @@ function updateTile(tile, num) {
  function slideLeft() {
     for (let r = 0; r < rows; r++) {
         let row = board[r];
-        row = slide(row);
+        row = slideL(row);
         board[r] = row
 
         for (let c = 0; c < columns; c++) {
@@ -120,7 +120,7 @@ function updateTile(tile, num) {
  function slideRight() {
     for (let r = 0; r < rows; r++) {
         let row = board[r];
-        row = slideRightRow(row);
+        row = slideR(row);
         board[r] = row;
 
         for (let c = 0; c < columns; c++) {
@@ -131,7 +131,7 @@ function updateTile(tile, num) {
     }
 }
 
-function slideRightRow(row) {
+function slideR(row) {
     row = filterZero(row);
 
     for (let i = row.length - 1; i > 0; i--) {
