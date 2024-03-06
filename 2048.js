@@ -34,12 +34,34 @@ function setGame() {
     dwaStart()
 }
 
+function resetGame() {
+
+for (let r = 0; r < rows; r++) {
+    for (let c = 0; c < columns; c++) {
+        if (!board[r][c] == 0 ) {
+            board = [
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0],
+            [0, 0, 0, 0]
+            ]
+        
+            }
+        }
+    }
+    dwaStart()
+    dwaStart()
+}
+
+
+
 function pustePole() {
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
             if (board[r][c] == 0 ) {
                 return true;
             }
+        
         }
     }
     return false;
@@ -49,7 +71,6 @@ function dwaStart() {
     if (!pustePole()) {
         return;
     }
-
     let startGry = false;
     while (!startGry) {
         let r = Math.floor(Math.random() * rows)
@@ -64,6 +85,12 @@ function dwaStart() {
         }
     }
 }
+
+// function gameOver() {
+//     if (!dwaStart()) {
+//         console.log("Game Over")
+//     }
+// }
 
 function updateTile(tile, num) {
     tile.innerText = "";
