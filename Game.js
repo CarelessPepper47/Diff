@@ -342,7 +342,7 @@ function leaveMerchant() {
                     // Check if the item index is valid
                     if (itemIndex >= 0 && itemIndex < merchant.shop.length) {
                         const selectedItem = merchant.shop[itemIndex];
-                        const itemCost = selectedItem.itemCost;
+                        const itemCost = selectedItem.cost;
                 
                         // Check if the player has enough money to buy the item
                         if (player.money >= itemCost) {

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2048</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="nowe2048.css" />
+    <script src="2048.js"></script>
+  </head>
+  <body onload="setGame()" class="text-center">
+    <main class="flex flex-col">
+      <h1 class="text-center font-bold text-4xl m-5">2048</h1>
+      <hr />
+      <h2 class="text-center m-5 font-semibold">
+        Score : <span id="score">0</span>
+      </h2>
+      <div
+        id="board"
+        class="flex flex-wrap w-[400px] h-[400px] bg-[#bbada0] border-[6px] border-solid border-[#bbada0] mx-auto my-auto justify-center"
+      >
+        <!-- <div class="tile x2">2</div> -->
+      </div>
+    </main>
+  </body>
+</html>
