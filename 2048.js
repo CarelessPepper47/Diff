@@ -70,7 +70,7 @@ function resetGame() {
 }
 
 function updateScoreDisplay() {
-    document.getElementById("score").innerText = "Score: " + score;
+    document.getElementById("score").innerText = score;
 }
 
 function updateHighScore() {
@@ -96,6 +96,7 @@ function pustePole() {
 
 function dwaStart() {
     if (!pustePole()) {
+        console.log("Game Over");
         return;
     }
     let startGry = false;
