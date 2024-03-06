@@ -7,6 +7,9 @@ let score = 0;
 let rows = 4;
 let columns = 4;
 
+let highScore = localStorage.getItem('highScore') || 0; // Retrieve high score from local storage, default to 0 if not found
+
+
 // window.onload = function() {
 //     setGame()
 // }
@@ -18,6 +21,8 @@ function setGame() {
         [0, 0, 0, 0],
         [0, 0, 0, 0]
     ]
+
+    updateScoreDisplay();
 
     for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
@@ -57,11 +62,24 @@ function resetGame() {
         }
     }
     score = 0; // Reset score
+    updateScoreDisplay(); // Update score display
+    updateHighScore(); // Check if high score needs to be updated
     document.getElementById("score").innerText = score; // Update score
     dwaStart(); // Add new random tiles
     dwaStart();
 }
 
+function updateScoreDisplay() {
+    document.getElementById("score").innerText = "Score: " + score;
+}
+
+function updateHighScore() {
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem('highScore', highScore); // Store high score in local storage
+        document.getElementById("high-score").innerText = "High Score: " + highScore;
+    }
+}
 
 
 function pustePole() {

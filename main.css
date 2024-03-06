@@ -556,6 +556,10 @@ video {
   margin: 1.25rem;
 }
 
+.m-auto {
+  margin: auto;
+}
+
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -600,6 +604,10 @@ video {
   margin-top: 1.25rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .flex {
   display: flex;
 }
@@ -633,6 +641,10 @@ video {
   width: 400px;
 }
 
+.w-\[500px\] {
+  width: 500px;
+}
+
 .w-full {
   width: 100%;
 }
@@ -640,6 +652,10 @@ video {
 .w-max {
   width: -moz-max-content;
   width: max-content;
+}
+
+.w-auto {
+  width: auto;
 }
 
 .flex-col {
@@ -656,6 +672,10 @@ video {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-4 {
+  border-width: 4px;
 }
 
 .border-y-\[6px\] {
@@ -677,9 +697,8 @@ video {
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
-.bg-\[\#bbada0\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(187 173 160 / var(--tw-bg-opacity));
+.bg-\[\#white\] {
+  background-color: #white;
 }
 
 .bg-black {
@@ -733,8 +752,24 @@ video {
   background-color: rgb(71 85 105 / var(--tw-bg-opacity));
 }
 
-.bg-\[\#white\] {
-  background-color: #white;
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#edc651\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(237 198 81 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#ece0ca\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 224 202 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#eee4da\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 228 218 / var(--tw-bg-opacity));
 }
 
 .p-2 {
@@ -755,8 +790,16 @@ video {
   padding-bottom: 0.5rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
 .text-center {
   text-align: center;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .text-2xl {
@@ -815,6 +858,16 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#edc651\] {
+  --tw-text-opacity: 1;
+  color: rgb(237 198 81 / var(--tw-text-opacity));
+}
+
+.text-\[\#727371\] {
+  --tw-text-opacity: 1;
+  color: rgb(114 115 113 / var(--tw-text-opacity));
 }
 
 .opacity-50 {
