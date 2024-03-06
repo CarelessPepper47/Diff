@@ -1,3 +1,5 @@
+// nic zmiany byleby dodać do gita
+
 let board;
 
 let score = 0;
