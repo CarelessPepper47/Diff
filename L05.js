@@ -111,7 +111,7 @@ console.log(`To zabralo ${ile} prób`)
 
 
 
-
+function makeAGuess() {
 
 let max = parseInt(prompt("Let's play a game, give me a number", "17"))
 
@@ -148,4 +148,21 @@ if (makeAGuess === "GG") {
     console.log("Cienias")
 } else {
     console.log(`It took ${attempts} attempts`)
+}
+}
+
+let subreddits = ["shittydarksouls", "fromsoftware", "bloodborne", "Elden Ring", "EldenLoreTalk"]
+
+for (let i = 0; i < subreddits.length; i++) {
+    console.log(`Visit reddit.com/r/${subreddits[i]}`)
+}
+
+for (sub of subreddits) {
+    console.log(`Visit reddit.com/r/${sub}`)
+}
+
+for (row of seatingCharts) {
+    for (imie of row) {
+        console.log(`${imie}`)
+    }
 }
