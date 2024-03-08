@@ -166,3 +166,42 @@ for (row of seatingCharts) {
         console.log(`${imie}`)
     }
 }
+
+const numbers = [1,2,3,4,5,6,7,8,9]; //DON'T CHANGE THIS LINE PLEASE!
+
+// WRITE YOUR LOOP BELOW THIS LINE:
+
+for (let anyNum of numbers) {
+    console.log(`${anyNum*anyNum}`)
+}
+
+const midterms = {
+    Adam: 98,
+    Lol: 86,
+    Git: 69,
+    Goge: 24
+}
+
+for (let person in midterms) {
+    console.log(`${person}`)
+    console.log(`${person} scored: ${midterms[person]}`)
+}
+
+const keyeses = Object.keys(midterms) // it will give me an array of keys:
+// [Adam, Lol. Git, Goge]
+
+const valueseses = Object.values(midterms) // it will give me an array of values:
+// [98, 86, 69, 24]
+
+for (let person of keyeses) {
+    console.log(person)
+}
+
+let total = 0;
+
+for (let score of valueseses) {
+    total += score
+}
+console.log(total)
+console.log(`There were ${valueseses.length} participants.`)
+console.log(`The average score was: ${total/(valueseses.length +1)}`)

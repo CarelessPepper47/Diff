@@ -73,6 +73,45 @@
             console.log(`${index}`)
             <span class="kom"> // h, e, l, l, o, , w, o, r, l, d</span>
           </p>
+          <p class="disclaimer">more in L05.js:160</p>
+        </div>
+      </section>
+      <hr class="my-5" />
+      <section>
+        <h1 class="text-3xl m-5 font-semibold">5. Iterating over Objects</h1>
+        <p>
+          Arrays, even tho they are objects, are iterated by loop command for...
+          OF. Iterating over Objects is different : for (let
+          <span class="text-red-400">key IN</span> object)
+        </p>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>const midterms = {</p>
+          <p>Adam: 98,</p>
+          <p>Lol: 86,</p>
+          <p>Git: 69,</p>
+          <p>Goge: 24</p>
+          <p>}</p>
+          <hr class="my-5" />
+          <p>
+            for (let person <span class="text-red-400">in</span> midterms) {
+            <span class="kom">
+              // let person <span class="text-red-400">IN</span> midterms, NOT
+              OF</span
+            >
+          </p>
+          <p>
+            console.log(`${person}`)
+            <span class="kom"> // Adam, Lol, Git, Goge</span>
+          </p>
+          <p>
+            console.log(`${person} scored: ${midterms[person]}`)
+            <span class="kom">
+              // Adam scored: 98, Lol scored: 86, Git scored: 69, Goge scored:
+              24</span
+            >
+          </p>
+          <p>}</p>
+          <p class="disclaimer">more at L05.js:185</p>
         </div>
       </section>
       <button onclick="makeAGuess()">Make a Guess Game</button>
