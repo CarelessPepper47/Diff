@@ -6,8 +6,6 @@ function startApp() {
 
     let poczatek = prompt(`This is your ToDoApp \nWhat would you like to do? \n"new" \n"list" \n"delete" \n"quit"`)
 
-    dziala = true;
-
     let usun;
 
     while (poczatek !== "quit" && poczatek !== "q") {
@@ -36,6 +34,7 @@ function startApp() {
             poczatek = prompt(`You must type a valid command.\n"new" \n"list" \n"delete" \n"quit"`)
         }
     }
+    console.log("You left ToDoApp!")
 }
 
 // Bootcamp Solution ----------------------------------------------------------------------------------------------------------------------
