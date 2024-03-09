@@ -10,7 +10,7 @@ function startApp() {
 
     let usun;
 
-    while (dziala) {
+    while (poczatek !== "quit" && poczatek !== "q") {
         if (poczatek === "new") {
             let newToDo = prompt("Make a new To Do")
             toDoList.push(newToDo)
@@ -32,11 +32,41 @@ function startApp() {
                 poczatek = prompt(`This is your ToDoApp \nWhat would you like to do? \n"new" \n"list" \n"delete" \n"quit"`)
             }
             
-        } else if (poczatek === "quit") {
-            console.log(`You left ToDoApp!`)
-            break;
         } else {
-            poczatek = prompt(`You must type a valid command. \n"quit" to quit an app`)
+            poczatek = prompt(`You must type a valid command.\n"new" \n"list" \n"delete" \n"quit"`)
         }
     }
+}
+
+// Bootcamp Solution ----------------------------------------------------------------------------------------------------------------------
+
+function BootCampApp() {
+
+    let input = prompt("What would you like to do?")
+
+    const todos = ['Collect Chicken Eggs', "Clean Litter Box"]
+
+    while(input !== "quit" && input !== "q") {
+        if (input === "list") {
+            console.log("-----------------")
+            for (let i = 0; i < todos.length; i++) {
+                console.log(`${i}: ${todos[i]}`)
+            }
+            console.log("-----------------")
+        } else if (input === "new") {
+            const niuToDo = prompt("Ok, what is the new todo?")
+            todos.push(niuToDo)
+            console.log(`${niuToDo} added to the list.`)
+        } else if (input === "delete") {
+            const index = parseInt(prompt("Okay, what do you want to delete?"))
+            if (!Number.isNaN(index)) {
+                const deleted = todos.splice(index, 1)
+                console.log(`Ok, deleted ${deleted[0]}`)
+            } else {
+                console.log("Unknown index")
+            }
+        }
+        input = prompt("What would you like to do?")
+    }
+    console.log("OK QUIT THE APP!")
 }
