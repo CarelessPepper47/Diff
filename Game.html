@@ -9,16 +9,21 @@
   </head>
   <body>
     <main class="flex flex-col">
-      <button
-        className="px-5 py-2 text-center bg-slate-600 border-5-black text-white"
-        onclick="rollDice()"
-      >
-        Step
-      </button>
-      <button className="hidden" onclick="encounter()">Encounter</button>
-      <button className="" onclick="showMe()">Show Me</button>
-      <button className="" onclick="chooseWeaponToEquip()">EQ</button>
-      <button className="" onclick="purchaseItem()">Purchase</button>
+      <section class="flex flex-col">
+        <button
+          className="px-5 py-2 text-center bg-slate-600 border-5-black text-white"
+          onclick="rollDice()"
+        >
+          Step
+        </button>
+        <button class="hidden" onclick="encounter()">Encounter</button>
+        <button class="" onclick="showMe()">Show Me</button>
+        <button class="" onclick="chooseWeaponToEquip()">EQ</button>
+        <button class="" onclick="purchaseItem()">Purchase</button>
+      </section>
+      <section>
+        <button class="" onclick="instructions()">Guide</button>
+      </section>
     </main>
   </body>
 </html>

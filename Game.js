@@ -506,6 +506,10 @@ function showMe() {
     }
 }
 
+function instructions() {
+    console.log(`When monster is nearby: Encounter \n"Attack" - to attack \n"Run"`)
+}
+
 
 
 
