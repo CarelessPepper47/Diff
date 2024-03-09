@@ -1,0 +1,28 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lekcja 6 - Functions</title>
+    <link rel="stylesheet" href="./main.css" />
+    <link rel="stylesheet" href="./moje.css" />
+    <script src="L06.js"></script>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1 class="text-3xl m-5 font-semibold">1. Introduction</h1>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>let die;</p>
+          <hr class="my-5" />
+          <p>
+            function app() { <span class="kom"> // start of the function</span>
+          </p>
+          <p>die = Math.floor(Math.random() * 6) + 1</p>
+          <p>}</p>
+          <button onclick="app()">Roll a Die</button>
+          <p>Die: <span id="roll">0</span></p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
