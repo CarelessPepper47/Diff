@@ -36,6 +36,40 @@
           <p>Die: <span id="roll">0</span></p>
         </div>
       </section>
+      <section>
+        <h1 class="text-3xl m-5 font-semibold">2. Arguments for functions</h1>
+        <p>
+          We've seen functions with arguments before; ie: "hello".indexOf("o")
+          <span class="kom"> // 4</span>
+        </p>
+        <p>
+          Or another: [1, 2, 3].push(4)
+          <span class="kom"> // [1, 2, 3, 4]</span>
+        </p>
+        <p>
+          And most used: console.log("dupa")
+          <span class="kom"> // dupa</span>
+        </p>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>greet(Tim) <span class="kom"> // Hi Tim</span></p>
+          <p>greet(Anya) <span class="kom"> // Hi Anya</span></p>
+          <p class="my-2">avarage(3, 2, 5, 6) <span class="kom"> // 4</span></p>
+          <p>average(20, 25) <span class="kom"> // 22.5</span></p>
+          <hr class="my-5" />
+          <p>function greet(person) {</p>
+          <p>console.log(`Hi ${person}`)</p>
+          <p>}</p>
+          <hr class="my-5" />
+          <section class="flex flex-col">
+            <button onclick="giveNumberForDie()">Roll a Better Die</button>
+            <p class="text-center">
+              You picked <span id="sides">0</span> sides:
+              <span id="rolled">0</span>
+            </p>
+            <button onclick="reset()">Reset the die</button>
+          </section>
+        </div>
+      </section>
     </main>
   </body>
 </html>
