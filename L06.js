@@ -37,13 +37,19 @@ let betterDie;
 
 function rollABetterDie() {
     betterDie = Math.floor(Math.random() * sidesNumber) + 1
-    rolledBetterDie()
+    document.getElementById("rolled").innerText = betterDie;
 }
 
 function updateBetterDie() {
     document.getElementById("sides").innerText = sidesNumber;
 }
-function rolledBetterDie() {
-    document.getElementById("rolled").innerText = betterDie;
+
+// DEFINE YOUR FUNCTION: 
+function rant(messege) {
+    console.log(`${messege.toUpperCase()}`)
+    console.log(`${messege.toUpperCase()}`)
+    console.log(`${messege.toUpperCase()}`)
 }
+
+rant("I hate beets")
 
