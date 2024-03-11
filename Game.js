@@ -258,6 +258,7 @@ function rollDice() {
         monster = monsters[Math.floor(Math.random() * monsters.length)]
         console.log(`${monster.monsterName} is nearby!`)
         rolls++
+        document.getElementById("encounter").classList.value = "block"
     } else if (randomNumber === 6) {
         function shuffleArray(array) {
             for (let i = array.length - 1; i > 0; i--) {
@@ -450,8 +451,9 @@ function encounter() {
                 console.log("You run away!")
                 combat = false;
                 }
-            }
-        }
+    }
+    document.getElementById("encounter").classList.add("hidden")
+}
         // monster = monsters[Math.floor(Math.random() * monsters.length)]
         // if (monster.health <= 0) {
         //     monster.health = Math.floor(Math.random() * 30)
@@ -507,7 +509,8 @@ function showMe() {
 }
 
 function instructions() {
-    console.log(`When monster is nearby: Encounter \n"Attack" - to attack \n"Run"`)
+    console.log(`When monster is nearby: Encounter \n"Attack" - to attack \n"Run" - to run away`)
+    console.log(`When you encounter a Chest: \n"Yes" \n"No" \n"Break"`)
 }
 
 
