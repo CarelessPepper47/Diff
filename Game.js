@@ -435,8 +435,7 @@ function encounter() {
                     break;
                 }
             }
-        } 
-        else if (trueAttack >= monster.health) {
+            } else if (trueAttack >= monster.health) {
                     attack;
                     kill++
                     player.money += kill
@@ -444,13 +443,13 @@ function encounter() {
                     rolls = 0;
                     console.log(`You killed ${monster.monsterName}!`)
                     console.log(`You've got ${kill} coins!`)
-            } 
-            else if (attack === "Run") {
+            } else if (attack === "Run") {
+                trueAttack = 0;
                 randomNumber = 0;
                 rolls = 0;
                 console.log("You run away!")
                 combat = false;
-                }
+        }
     }
     document.getElementById("encounter").classList.add("hidden")
 }

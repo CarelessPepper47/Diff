@@ -2,9 +2,10 @@
   "devDependencies": {
     "tailwindcss": "^3.4.1"
   },
-
   "scripts": {
     "wind": "npx tailwindcss -i ./tw.css -o ./main.css --watch"
+  },
+  "dependencies": {
+    "eslint": "^8.57.0"
   }
 }
-
