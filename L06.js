@@ -53,3 +53,19 @@ function rant(messege) {
 
 rant("I hate beets")
 
+let str = prompt("Co tam mordo")
+
+function repeat(str, y) {
+    for (let i = 0; i < y; i++) {
+        console.log(str)
+    }
+    
+    let repetition = "";
+    for (let i = 0; i < y; i++) {
+        repetition += str;
+    } 
+    console.log(repetition)
+}
+
+repeat(str, 3)
+
