@@ -72,3 +72,55 @@ const add = function(x, y) {
 const square = function(x) {
     return x*x
 }
+
+const greet = function() {console.log("Hi")}
+
+function callTwice(func) {
+    func()
+    func()
+}
+
+
+function makeMysteryFunc() {
+    let num = Math.random()
+    if (num > 0.5) {
+        return function() {
+            console.log("Congrats!")
+            console.log("Congrats!")
+        }
+    } else {
+        return function() {
+            alert("Dupa")
+            alert("Dupa")
+        }
+    }
+}
+
+const mystery = makeMysteryFunc()
+
+
+
+function makeBetweenFunc(min, max) {
+    return function(num) {
+        return num >= min && min <= max
+    }
+}
+
+const testRange = function(num) {
+    return num >= min && min <= max
+}
+
+function isBetween(num) {
+    return num >= 1 && num <= 10
+}
+
+function isBetween(num) {
+    return num >= 50 && num <= 100
+    // if (num >= 50 && num <= 100) {
+    //     return true
+    // } else {
+    //     return false
+    // }
+}
+
+makeBetweenFunc(50, 100)
