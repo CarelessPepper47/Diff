@@ -166,6 +166,8 @@ const monsterNames = [
   "Minotaur",
   "Hydra",
   "Cyclops",
+  "Golem",
+  "Giant"
   // Add more monster names as needed
 ];
 
@@ -177,7 +179,7 @@ let krakenCreated = false;
 for (let i = 0; i < monsterNames.length; i++) {
   let monsterName = monsterNames[getRandomNumber(0, monsterNames.length - 1)];
   let health = getRandomNumber(1, 50);
-  let damage = getRandomNumber(1, 10);
+  let damage = getRandomNumber(1, 30);
 
   // Check if the monster is a dragon and has less than 25 health
   if (monsterName === "Dragon" && health < 25) {
@@ -192,6 +194,10 @@ for (let i = 0; i < monsterNames.length; i++) {
     health = 50;
     damage = 30;
     krakenCreated = true; // Set flag to true after creating Kraken
+  }
+  
+  if (krakenCreated === true) {
+    monsterNames.remove("Kraken")
   }
 
   let monster = {
