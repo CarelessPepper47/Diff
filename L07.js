@@ -176,3 +176,49 @@ const exSquare = {
 
 // THIS
 
+const cat = {
+    name: "Dupa",
+    colot: "grey",
+    breed: "mini kot",
+    miau() {
+        console.log(`${this.name} says MIAUU`)
+    }
+}
+
+const miau2 = cat.miau() // wont call the NAME, it will refer to: WINDOW the default object
+
+function scream() {
+    console.log("AHHHHHHHH")
+}
+
+scream() // AHHHHHHHH
+
+window.scream() // AHHHHHHHH // this.scream() is the same
+
+// Define an object called hen.  It should have three properties:
+// name should be set to 'Helen'
+// eggCount should be set to 0
+// layAnEgg should be a method which increments the value of eggCount by 1 and returns the string "EGG".  You'll need to use this.
+
+// hen.name // "Helen"
+// hen.eggCount // 0
+// hen.layAnEgg() // "EGG"
+// hen.layAnEgg() // "EGG"
+// hen.eggCount // 2
+
+const hen = {
+    name: "Helen",
+    eggCount: 0,
+    layAnEgg() {
+        this.eggCount++
+        return console.log("EGG")
+    }
+}
+
+// const hen = {
+//     name: "Helen",
+//     eggCount: 0,
+//     layAnEgg() {
+//         return this.eggCount++, "EGG"
+//     }
+// }
