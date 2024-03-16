@@ -106,9 +106,11 @@ function makeBetweenFunc(min, max) {
     }
 }
 
-const testRange = function(num) {
-    return num >= min && min <= max
-}
+const isChild = makeBetweenFunc(0, 18)
+const isAdult = makeBetweenFunc(19, 64)
+const isSenior = makeBetweenFunc(65, 120)
+
+isSenior(20);
 
 function isBetween(num) {
     return num >= 1 && num <= 10
@@ -124,3 +126,53 @@ function isBetween(num) {
 }
 
 makeBetweenFunc(50, 100)
+"hello".toUpperCase() // "HELLO" => string method
+[1, 2, 3].indexOf(2) // 1 => array method
+
+const myMath = {
+    PI: 3.14159,
+    square: function (num) {
+        return num*num;
+    },
+    cube: function (num) {
+        return num ** 3
+    }
+}
+
+myMath.square(3) // 9
+myMath.cube(3) // 27
+myMath["cube"](3) // 27
+
+const math = {
+    black: "hi!",
+    add(x, y) {
+        return x + y
+    },
+    multiply(x, y) {
+        return x * y
+    }
+}
+
+math.add(50, 60) // 110
+
+// Define an object called square, which will hold methods that have to do with the geometry of squares. 
+// It should contain two methods, area and perimeter 
+
+// area should accept the length of a side (all sides are the same in a square) and then return the side squared. 
+
+// perimeter should accept the length of a side and return that side multiplied by 4.
+
+// square.area(10) //100
+// square.perimeter
+
+const exSquare = {
+    area(length) {
+        return length * length
+    },
+    perimeter(length) {
+        return length * 4
+    }
+}
+
+// THIS
+
