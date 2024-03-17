@@ -105,9 +105,9 @@ let initials = fullNames.map(function (initial) {
     return initial.name[0].toUpperCase() + initial.surname[0].toUpperCase()
 })
 
-const rollDie = () => {
-    return Math.floor(Math.random * 6) + 1;
-}
+// const rollDie = () => {
+//     return Math.floor(Math.random() * 6) + 1;
+// }
 
 // Write an arrow function expression called greet.  
 // It should accept a single string argument, representing a person's name.  It should return a greeting string as shown below:
@@ -119,3 +119,26 @@ const rollDie = () => {
 const greet = (name) => {
     return console.log(`Hey ${name}!`)
 }
+
+
+// evolution of making functions shorter
+
+const isEven0 = function (num) { // regular function expression
+    return num % 2 === 0;
+}
+const isEven1 = (num) => { // arrow function with parens around parameters
+    return num % 2 === 0;
+}
+const isEven2 = num => { // no parens around parameter
+    return num % 2 === 0;
+}
+const isEven3 = num => ( // implicit return
+    num % 2 === 0
+);
+const isEven4 = num => num % 2 === 0; // one-liner implicit return
+
+const rollDie1 = () => (
+    Math.floor(Math.random() * 6) + 1
+)
+
+const rollDie2 = () => Math.floor(Math.random() * 6) + 1
