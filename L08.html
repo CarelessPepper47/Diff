@@ -36,7 +36,29 @@
           </p>
           <hr class="my-5" />
           <p class="kom">forEach</p>
-          <p>L08.js:1</p>
+          <p class="disclaimer">L08.js:1</p>
+          <hr class="my-5" />
+          <p class="kom">
+            map - takes an array, and MODIFIES it, making a brand new array
+          </p>
+          <p>const text = ["rofl", "lol", "omg"]</p>
+          <p>const textCaps = texts.map(function (t) {</p>
+          <p>return t.toUpperCase();</p>
+          <p>})</p>
+          <p>texts; <span class="kom"> // ["rofl", "lol", "omg"]</span></p>
+          <p>caps; <span class="kom"> // ["ROFL", "LOL", "OMG"]</span></p>
+          <p class="disclaimer">L08.js:48</p>
+        </div>
+      </section>
+      <section>
+        <h1 class="text-3xl m-5 font-semibold">2. Arrow Functions</h1>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>const square = (x) => {</p>
+          <p>return x * x</p>
+          <p>}</p>
+          <p>const sum = (x, y) => {</p>
+          <p>return x + y</p>
+          <p>}</p>
         </div>
       </section>
     </main>
