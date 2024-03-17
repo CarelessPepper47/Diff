@@ -25,19 +25,33 @@ for (let el of numbers) {
 const movies = [
     {
         title: "Aliens",
-        score: 88
+        score: 88,
+        year: 1986
     },
     {
         title: "Amadeus",
-        score: 90
+        score: 90,
+        year: 1984
     },
     {
         title: "Parasite",
-        score: 95
+        score: 95,
+        year: 2018
     },
     {
         title: "Mandariniid",
-        score: 99
+        score: 99,
+        year: 2010
+    },
+    {
+        title: "LOTR",
+        score: 100,
+        year: 2001
+    },
+    {
+        title: "Sharknado",
+        score: 44,
+        year: 2013
     }
 ]
 
@@ -153,3 +167,11 @@ setTimeout(() => console.log("Minęło 5 sekund."), 5000)
 
 const interwal = setInterval(() => console.log(Math.floor(Math.random() * 10)), 5000)
 // to stop the interval just call clearInterval(interwal)
+
+const odds = numbers.filter(num => num % 2 !== 0)
+const oddsTrueFalse = numbers.map(num => num % 2 !== 0)
+
+const newMovies = movies.filter(m => m.year > 2000)
+const goodNewMovies = newMovies.filter(m => m.score > 90)
+
+const newGoodMoviesInaczej = movies.filter(m => m.year > 2000).map(m => m.score > 90)
