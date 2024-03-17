@@ -175,3 +175,113 @@ const newMovies = movies.filter(m => m.year > 2000)
 const goodNewMovies = newMovies.filter(m => m.score > 90)
 
 const newGoodMoviesInaczej = movies.filter(m => m.year > 2000).map(m => m.score > 90)
+
+// Let's get some practice using the filter method. Write a function called validUserNames 
+// that accepts an array of usernames (strings).  It should return a new array, containing only the 
+// usernames that are less than 10 characters. For example:
+
+// validUserNames(['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']);
+// // => ["mark", "carrie98", "MoanaFan"]
+
+
+// Note: The syntax for this solution might be a little strange to you at this point in the course 
+// because it requires you to write the code, that you just learned in the previous lecture, inside of a function. e.g.,
+
+// function validUserNames(usernames) {
+//   // your code here
+// }
+
+
+// or if you want to get fancy with an arrow function:
+
+// const validUserNames = usernames => // your code here;
+
+
+// There is no need to define an actual array of usernames, that part is done for you behind the scenes.
+
+const usernames = ['mark', 'staceysmom1978', 'q29832128238983', 'carrie98', 'MoanaFan']
+const validUserNames2 = usernames.filter(names => names.length < 10)
+
+// BOOTCAMP SOLUTION
+const validUserNames = usernames => usernames.filter(username => username.length < 10)
+
+usernames.every(word => {
+    return word.length === 3;
+})
+
+const isSomeM = usernames.some(word => word[0] === "m") // true // "mark", "MoanaFan"
+const isEveryM = usernames.every(word => word[0] === "m") // false // not every username starts with "m"
+
+// Define a function called allEvens that accepts a single array of numbers.  
+// If the array contains all even numbers, return true.  Otherwise, return false.  
+// Use some or every to help you do this!  (only one of them is actually useful here)
+
+// allEvens([2,4,6,8]) //true
+// allEvens([1,4,6,8]) //false
+// allEvens([1,2,3]) //false
+
+function allEvens(array) {
+    if (array.every(num => num % 2 === 0)) {
+        return true
+    } else {
+        return false
+    }
+}
+
+// BOOTCAMP SOLUTION 
+
+function allEvens2(array) {
+    let newArray = array.every(num => num % 2 === 0);
+    return newArray;
+};
+
+const dupa = [3, 5, 7, 9, 11]
+
+const reducedDupa = dupa.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue
+})
+
+let prices = [9,99, 1.50, 3.50, 49.99]
+
+let listaZakupow = prices.reduce((total, rzeczZlisty) => {
+    return total+rzeczZlisty
+})
+
+prices.reduce((min, price) => {
+    if (price < min) {
+        return price;
+    }
+    return min
+})
+
+const bestMovie = movies.reduce((highest, currMovie) => {
+    if (currMovie.score > highest.score) {
+        return currMovie
+    }
+    return highest
+})
+
+const withoutIndexZero = dupa.reduce((sum, num) => sum+num, 100) // the same as below, but with additional 100
+const withIndexZero = dupa.reduce((sum, num) => sum+num)
+
+const viggo1 = {
+    firstName: "Viggo",
+    lastName: "Mortensen",
+    fullName: function() {
+        return `${this.firstName} ${this.lastName}`
+    }
+}
+
+const viggo2 = {
+    firstName: "Viggo",
+    lastName: "Mortensen",
+    fullName: function() {
+        return `${this.firstName} ${this.lastName}`
+    },
+    shoutName: function() {
+        setTimeout(() => {
+            console.log(this.fullName()) // Arrow Function ignores window object and refers to the closest object which is viggo2
+        }, 3000)
+    }
+}
+
