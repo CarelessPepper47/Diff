@@ -142,3 +142,14 @@ const rollDie1 = () => (
 )
 
 const rollDie2 = () => Math.floor(Math.random() * 6) + 1
+
+const scoreByTen = movies.map(function(movie) {
+    return movie.score/10
+})
+
+const scoreByFive = movies.map((movie) => movie.score/5) 
+
+setTimeout(() => console.log("Minęło 5 sekund."), 5000)
+
+const interwal = setInterval(() => console.log(Math.floor(Math.random() * 10)), 5000)
+// to stop the interval just call clearInterval(interwal)
