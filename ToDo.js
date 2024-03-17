@@ -13,6 +13,9 @@ function startApp() {
             let newToDo = prompt("Make a new To Do")
             toDoList.push(newToDo)
             console.log(`Dodano do listy ${newToDo}`)
+            let toDoThing = document.createElement("p");
+            toDoThing.innerText = `- ${newToDo}`
+            document.getElementById("lista").append(toDoThing)
         } else if (poczatek === "list") {
             for (let rzecz of toDoList) {
                 console.log(`${toDoList.indexOf(rzecz) + 1}. ${rzecz}`)
