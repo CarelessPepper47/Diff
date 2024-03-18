@@ -35,6 +35,8 @@ let classes = [
     }
 ]
 
+let classDiv;
+
 function start() {
     let playerName = prompt("Enter your name:");
     document.getElementById("info").classList.remove("hidden")
@@ -42,17 +44,22 @@ function start() {
     document.getElementById("name").innerText = playerName;
     document.getElementById("start").classList.add("hidden");
     let uiSelection = document.getElementById("ui")
-    for (let i = 0; i < classes.length; i++) {
-        let classDiv = document.createElement("div");
+    for (let i = 0; i < classes.length + 1; i++) {
+        classDiv = document.createElement("div");
         classDiv.classList.add("class");
         classDiv.classList.add("bg-black"); // Adding the additional class
         classDiv.classList.add("w-1/2");
         classDiv.classList.add("h-screen");
         classDiv.textContent = classes[i].name;
-        uiSection.appendChild(classDiv);
+        if (classDiv.textContent == "Warrior") {
+            classDiv.classList.add("")
+        }
+        uiSelection.appendChild(classDiv);
     }
     // chooseClass()
 }
+
+
 
 // function chooseClass() {
 //     let classChoice = document.createElement("div")

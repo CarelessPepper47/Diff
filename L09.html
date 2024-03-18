@@ -41,6 +41,14 @@
           <p>const dogs = ["Wyatt", "Siko", "Rusty"]</p>
           <p>const allPets = [...cats, ...dogs]</p>
         </div>
+        <h2 class="text-2xl m-5 font-semibold">3. Spread in Object Literals</h2>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>const feline = { legs: 4, family: "Felidae" }</p>
+          <p>const canine = { family: "Caninae", furry: true }</p>
+          <hr class="my-5" />
+          <p>const dog = {...canine, isPet: true }</p>
+          <p>const lion = {...feline, isPet: false }</p>
+        </div>
       </section>
     </main>
   </body>

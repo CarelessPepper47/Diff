@@ -34,3 +34,14 @@ const dogs = ["Wyatt", "Siko", "Rusty"]
 const hello = [..."Hello"] // ["H", "e", "l", "l", "o"]
 
 const allPets = [...cats, ...dogs, "Mały Kot"] // ["Blue", "Scout", "Rocket", "Wyatt", "Siko", "Rusty", "Mały Kot"]
+
+
+
+// SPREAD IN OBJECTS
+const feline = { legs: 4, family: "Felidae" }
+const canine = { family: "Caninae", furry: true }
+
+const dog = {...canine, isPet: true }
+const lion = {...feline, isPet: false }
+
+const catDog = { ...feline, ...canine} // { legs: 4, family: "Caninae", furry: true } // "Caninae" won because it overrides
