@@ -44,17 +44,21 @@ function start() {
     document.getElementById("name").innerText = playerName;
     document.getElementById("start").classList.add("hidden");
     let uiSelection = document.getElementById("ui")
-    for (let i = 0; i < classes.length + 1; i++) {
-        classDiv = document.createElement("div");
-        classDiv.classList.add("class"); // Adding the additional class
-        classDiv.classList.add("w-1/2");
-        classDiv.classList.add("h-screen");
-        classDiv.textContent = classes[i]["name"];
+    for (let i = 0; i < classes.length; i++) {
+        classDiv = document.createElement("button");
+        classDiv.textContent = classes[i].name;
         if (classDiv.textContent === "Warrior") {
-            classDiv.classList.add("warrior")
+            // classDiv.classList.add("warrior")
+            classDiv.classList.add("bg-warrior")
         } else if (classDiv.textContent === "Rogue") {
-            classDiv.classList.add("rogue")
+            // classDiv.classList.add("rogue")
+            // classDiv.classList.add("bg-rogue")
+            classDiv.classList.add("bg-red-500")
+
+        } else {
+        break;
         }
+        classDiv.classList.add("rounded-full")
         uiSelection.appendChild(classDiv);
     }
     // chooseClass()

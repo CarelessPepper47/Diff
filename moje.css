@@ -6,10 +6,18 @@
     color: red;
 }
 
-.warror {
-    background-image: url("./RPGimg/Warrior.png");
-}
+/* .warrior {
+    width: 50%;
+    background-image: url("C:/Users/mtszr/OneDrive/Desktop/vite-project/Steele/RPGimg/Warrior.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: top;
+} */
 
-.rogue {
-    background-image: url("./RPGimg/Rogue.png");
-}
+/* .rogue {
+    width: 50%;
+    background-image: url("C:/Users/mtszr/OneDrive/Desktop/vite-project/Steele/RPGimg/Rogue.png");
+    background-size: 90%;
+    background-repeat: no-repeat;
+    background-position: top;
+} */
