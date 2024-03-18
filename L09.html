@@ -10,8 +10,37 @@
   <body>
     <main>
       <section>
-        <h1 class="text-3xl m-5 font-semibold">1. Incroduction</h1>
-        <div class="flex flex-col border-2 bg-black/80 text-white p-5"></div>
+        <h1 class="text-3xl m-5 font-semibold">
+          1. Default value in Functions
+        </h1>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>function rollDie(numSides = 6) {</p>
+          <p>return Math.floor(Math.random() * numSides) + 1</p>
+          <p>}</p>
+        </div>
+      </section>
+      <section>
+        <h1 class="text-3xl m-5 font-semibold">2. Spread</h1>
+        <h2 class="text-2xl m-5 font-semibold">1. Spread in Function Calls</h2>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>const nums = [13, 4, 5, 21, 29, 34, 99, 108]</p>
+          <p>Math.max(nums) <span class="kom"> // NaN</span></p>
+          <p>
+            Math.max(...nums)
+            <span class="kom">
+              // 108 - (...)spreads the array into seperate arguments, and now
+              108 is again the biggest</span
+            >
+          </p>
+          <p>console.log("Hello") <span class="kom"> // Hello</span></p>
+          <p>console.log(..."Hello") <span class="kom"> // H e l l o</span></p>
+        </div>
+        <h2 class="text-2xl m-5 font-semibold">2. Spread in Array Literals</h2>
+        <div class="flex flex-col border-2 bg-black/80 text-white p-5">
+          <p>const cats = ["Blue", "Scout", "Rocket"]</p>
+          <p>const dogs = ["Wyatt", "Siko", "Rusty"]</p>
+          <p>const allPets = [...cats, ...dogs]</p>
+        </div>
       </section>
     </main>
   </body>
