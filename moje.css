@@ -5,3 +5,11 @@
 .disclaimer {
     color: red;
 }
+
+.warror {
+    background-image: url("./RPGimg/Warrior.png");
+}
+
+.rogue {
+    background-image: url("./RPGimg/Rogue.png");
+}

@@ -46,13 +46,14 @@ function start() {
     let uiSelection = document.getElementById("ui")
     for (let i = 0; i < classes.length + 1; i++) {
         classDiv = document.createElement("div");
-        classDiv.classList.add("class");
-        classDiv.classList.add("bg-black"); // Adding the additional class
+        classDiv.classList.add("class"); // Adding the additional class
         classDiv.classList.add("w-1/2");
         classDiv.classList.add("h-screen");
-        classDiv.textContent = classes[i].name;
-        if (classDiv.textContent == "Warrior") {
-            classDiv.classList.add("")
+        classDiv.textContent = classes[i]["name"];
+        if (classDiv.textContent === "Warrior") {
+            classDiv.classList.add("warrior")
+        } else if (classDiv.textContent === "Rogue") {
+            classDiv.classList.add("rogue")
         }
         uiSelection.appendChild(classDiv);
     }
