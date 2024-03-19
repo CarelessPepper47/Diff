@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./moje.css" />
+    <!-- <link rel="stylesheet" href="nowe2048.css" /> -->
+    <script src="Snake.js"></script>
+  </head>
+  <body>
+    <main class="flex flex-col justify-center">
+      <div id="board"></div>
+      <button onclick="make()">Start</button>
+      <button onclick="restartGame()">Restart</button>
+      <section
+        id="game"
+        class="flex h-[600px] w-[600px] flex-wrap content-start mx-auto m-10 bg-slate-200"
+      ></section>
+    </main>
+  </body>
+</html>
