@@ -11,7 +11,7 @@ function startGame() {
 }
 
 function make() {
-    for (let i = 0; i < 1180; i++) {
+    for (let i = 0; i < 1500; i++) {
         startGame()
     }
 }
